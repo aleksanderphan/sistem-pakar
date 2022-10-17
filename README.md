@@ -1,4 +1,3 @@
-# sistem-pakar
-Sistem Pakar UTS Semester 7
+# Sistem Pakar UTS Semester 7
 
-Program dengan metode Forward-Chaining dalam mengdiagnosa infeksi virus COVID
+## **Program dengan metode Forward-Chaining dalam mendiagnosa infeksi virus COVID**
