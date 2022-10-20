@@ -25,13 +25,15 @@ Partial Class FrmObat
         Me.dgvObat = New System.Windows.Forms.DataGridView()
         Me.grpObat = New System.Windows.Forms.GroupBox()
         Me.grpDetail = New System.Windows.Forms.GroupBox()
+        Me.txtHarga = New System.Windows.Forms.TextBox()
+        Me.lblHarga = New System.Windows.Forms.Label()
         Me.lblNamaObat = New System.Windows.Forms.Label()
         Me.txtNamaObat = New System.Windows.Forms.TextBox()
         Me.grpFungsi = New System.Windows.Forms.GroupBox()
+        Me.btnInsert = New System.Windows.Forms.Button()
+        Me.btnDelete = New System.Windows.Forms.Button()
         Me.btnSave = New System.Windows.Forms.Button()
         Me.btnEdit = New System.Windows.Forms.Button()
-        Me.lblHarga = New System.Windows.Forms.Label()
-        Me.txtHarga = New System.Windows.Forms.TextBox()
         CType(Me.dgvObat, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.grpObat.SuspendLayout()
         Me.grpDetail.SuspendLayout()
@@ -81,10 +83,30 @@ Partial Class FrmObat
         Me.grpDetail.Controls.Add(Me.txtNamaObat)
         Me.grpDetail.Location = New System.Drawing.Point(391, 12)
         Me.grpDetail.Name = "grpDetail"
-        Me.grpDetail.Size = New System.Drawing.Size(397, 125)
+        Me.grpDetail.Size = New System.Drawing.Size(397, 120)
         Me.grpDetail.TabIndex = 2
         Me.grpDetail.TabStop = False
         Me.grpDetail.Text = "Detail"
+        '
+        'txtHarga
+        '
+        Me.txtHarga.Anchor = CType(((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Left) _
+            Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+        Me.txtHarga.Location = New System.Drawing.Point(80, 94)
+        Me.txtHarga.Name = "txtHarga"
+        Me.txtHarga.ReadOnly = True
+        Me.txtHarga.Size = New System.Drawing.Size(311, 20)
+        Me.txtHarga.TabIndex = 3
+        Me.txtHarga.TabStop = False
+        '
+        'lblHarga
+        '
+        Me.lblHarga.AutoSize = True
+        Me.lblHarga.Location = New System.Drawing.Point(6, 97)
+        Me.lblHarga.Name = "lblHarga"
+        Me.lblHarga.Size = New System.Drawing.Size(68, 13)
+        Me.lblHarga.TabIndex = 2
+        Me.lblHarga.Text = "Harga Obat :"
         '
         'lblNamaObat
         '
@@ -111,14 +133,34 @@ Partial Class FrmObat
         '
         Me.grpFungsi.Anchor = CType(((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Left) _
             Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+        Me.grpFungsi.Controls.Add(Me.btnInsert)
+        Me.grpFungsi.Controls.Add(Me.btnDelete)
         Me.grpFungsi.Controls.Add(Me.btnSave)
         Me.grpFungsi.Controls.Add(Me.btnEdit)
-        Me.grpFungsi.Location = New System.Drawing.Point(391, 143)
+        Me.grpFungsi.Location = New System.Drawing.Point(391, 138)
         Me.grpFungsi.Name = "grpFungsi"
-        Me.grpFungsi.Size = New System.Drawing.Size(397, 55)
+        Me.grpFungsi.Size = New System.Drawing.Size(397, 48)
         Me.grpFungsi.TabIndex = 3
         Me.grpFungsi.TabStop = False
         Me.grpFungsi.Text = "Fungsi"
+        '
+        'btnInsert
+        '
+        Me.btnInsert.Location = New System.Drawing.Point(6, 19)
+        Me.btnInsert.Name = "btnInsert"
+        Me.btnInsert.Size = New System.Drawing.Size(75, 23)
+        Me.btnInsert.TabIndex = 3
+        Me.btnInsert.Text = "Baru"
+        Me.btnInsert.UseVisualStyleBackColor = True
+        '
+        'btnDelete
+        '
+        Me.btnDelete.Location = New System.Drawing.Point(316, 19)
+        Me.btnDelete.Name = "btnDelete"
+        Me.btnDelete.Size = New System.Drawing.Size(75, 23)
+        Me.btnDelete.TabIndex = 2
+        Me.btnDelete.Text = "Hapus"
+        Me.btnDelete.UseVisualStyleBackColor = True
         '
         'btnSave
         '
@@ -132,32 +174,12 @@ Partial Class FrmObat
         '
         'btnEdit
         '
-        Me.btnEdit.Location = New System.Drawing.Point(6, 19)
+        Me.btnEdit.Location = New System.Drawing.Point(168, 19)
         Me.btnEdit.Name = "btnEdit"
         Me.btnEdit.Size = New System.Drawing.Size(75, 23)
         Me.btnEdit.TabIndex = 0
         Me.btnEdit.Text = "Edit"
         Me.btnEdit.UseVisualStyleBackColor = True
-        '
-        'lblHarga
-        '
-        Me.lblHarga.AutoSize = True
-        Me.lblHarga.Location = New System.Drawing.Point(6, 97)
-        Me.lblHarga.Name = "lblHarga"
-        Me.lblHarga.Size = New System.Drawing.Size(68, 13)
-        Me.lblHarga.TabIndex = 2
-        Me.lblHarga.Text = "Harga Obat :"
-        '
-        'txtHarga
-        '
-        Me.txtHarga.Anchor = CType(((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Left) _
-            Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
-        Me.txtHarga.Location = New System.Drawing.Point(80, 94)
-        Me.txtHarga.Name = "txtHarga"
-        Me.txtHarga.ReadOnly = True
-        Me.txtHarga.Size = New System.Drawing.Size(311, 20)
-        Me.txtHarga.TabIndex = 3
-        Me.txtHarga.TabStop = False
         '
         'FrmObat
         '
@@ -169,7 +191,7 @@ Partial Class FrmObat
         Me.Controls.Add(Me.grpObat)
         Me.Name = "FrmObat"
         Me.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent
-        Me.Text = "Obat"
+        Me.Text = "Database Obat"
         CType(Me.dgvObat, System.ComponentModel.ISupportInitialize).EndInit()
         Me.grpObat.ResumeLayout(False)
         Me.grpDetail.ResumeLayout(False)
@@ -189,4 +211,6 @@ Partial Class FrmObat
     Friend WithEvents btnSave As Button
     Friend WithEvents txtHarga As TextBox
     Friend WithEvents lblHarga As Label
+    Friend WithEvents btnDelete As Button
+    Friend WithEvents btnInsert As Button
 End Class

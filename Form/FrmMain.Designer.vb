@@ -24,8 +24,8 @@ Partial Class FrmMain
     Private Sub InitializeComponent()
         Me.MenuStrip1 = New System.Windows.Forms.MenuStrip()
         Me.DiagnosaToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
-        Me.LoginToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.DaftarObatToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
+        Me.LoginToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.MenuStrip1.SuspendLayout()
         Me.SuspendLayout()
         '
@@ -46,18 +46,18 @@ Partial Class FrmMain
         Me.DiagnosaToolStripMenuItem.Text = "Diagnosa"
         Me.DiagnosaToolStripMenuItem.Visible = False
         '
+        'DaftarObatToolStripMenuItem
+        '
+        Me.DaftarObatToolStripMenuItem.Name = "DaftarObatToolStripMenuItem"
+        Me.DaftarObatToolStripMenuItem.Size = New System.Drawing.Size(96, 20)
+        Me.DaftarObatToolStripMenuItem.Text = "Database Obat"
+        Me.DaftarObatToolStripMenuItem.Visible = False
+        '
         'LoginToolStripMenuItem
         '
         Me.LoginToolStripMenuItem.Name = "LoginToolStripMenuItem"
         Me.LoginToolStripMenuItem.Size = New System.Drawing.Size(49, 20)
         Me.LoginToolStripMenuItem.Text = "Login"
-        '
-        'DaftarObatToolStripMenuItem
-        '
-        Me.DaftarObatToolStripMenuItem.Name = "DaftarObatToolStripMenuItem"
-        Me.DaftarObatToolStripMenuItem.Size = New System.Drawing.Size(80, 20)
-        Me.DaftarObatToolStripMenuItem.Text = "Daftar Obat"
-        Me.DaftarObatToolStripMenuItem.Visible = False
         '
         'FrmMain
         '
