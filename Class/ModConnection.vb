@@ -13,10 +13,13 @@ Module ModConnection
         conn.Open()
         Try
             da = New OleDbDataAdapter(query, conn)
+            dt.Clear()
             da.Fill(dt)
+            da = Nothing
         Catch ex As Exception
             MsgBox(ex.ToString)
         End Try
+
 
         conn.Close()
         Return dt
