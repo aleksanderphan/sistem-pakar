@@ -34,6 +34,7 @@ Partial Class FrmObat
         Me.btnDelete = New System.Windows.Forms.Button()
         Me.btnSave = New System.Windows.Forms.Button()
         Me.btnEdit = New System.Windows.Forms.Button()
+        Me.txtKode = New System.Windows.Forms.TextBox()
         CType(Me.dgvObat, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.grpObat.SuspendLayout()
         Me.grpDetail.SuspendLayout()
@@ -77,6 +78,7 @@ Partial Class FrmObat
         '
         Me.grpDetail.Anchor = CType(((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Left) _
             Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+        Me.grpDetail.Controls.Add(Me.txtKode)
         Me.grpDetail.Controls.Add(Me.txtHarga)
         Me.grpDetail.Controls.Add(Me.lblHarga)
         Me.grpDetail.Controls.Add(Me.lblNamaObat)
@@ -96,8 +98,7 @@ Partial Class FrmObat
         Me.txtHarga.Name = "txtHarga"
         Me.txtHarga.ReadOnly = True
         Me.txtHarga.Size = New System.Drawing.Size(311, 20)
-        Me.txtHarga.TabIndex = 3
-        Me.txtHarga.TabStop = False
+        Me.txtHarga.TabIndex = 1
         '
         'lblHarga
         '
@@ -127,7 +128,6 @@ Partial Class FrmObat
         Me.txtNamaObat.ReadOnly = True
         Me.txtNamaObat.Size = New System.Drawing.Size(385, 40)
         Me.txtNamaObat.TabIndex = 0
-        Me.txtNamaObat.TabStop = False
         '
         'grpFungsi
         '
@@ -149,7 +149,7 @@ Partial Class FrmObat
         Me.btnInsert.Location = New System.Drawing.Point(6, 19)
         Me.btnInsert.Name = "btnInsert"
         Me.btnInsert.Size = New System.Drawing.Size(75, 23)
-        Me.btnInsert.TabIndex = 3
+        Me.btnInsert.TabIndex = 0
         Me.btnInsert.Text = "Baru"
         Me.btnInsert.UseVisualStyleBackColor = True
         '
@@ -158,31 +158,42 @@ Partial Class FrmObat
         Me.btnDelete.Location = New System.Drawing.Point(316, 19)
         Me.btnDelete.Name = "btnDelete"
         Me.btnDelete.Size = New System.Drawing.Size(75, 23)
-        Me.btnDelete.TabIndex = 2
+        Me.btnDelete.TabIndex = 3
         Me.btnDelete.Text = "Hapus"
         Me.btnDelete.UseVisualStyleBackColor = True
         '
         'btnSave
         '
         Me.btnSave.Enabled = False
-        Me.btnSave.Location = New System.Drawing.Point(87, 19)
+        Me.btnSave.Location = New System.Drawing.Point(235, 19)
         Me.btnSave.Name = "btnSave"
         Me.btnSave.Size = New System.Drawing.Size(75, 23)
-        Me.btnSave.TabIndex = 1
+        Me.btnSave.TabIndex = 2
         Me.btnSave.Text = "Simpan"
         Me.btnSave.UseVisualStyleBackColor = True
         '
         'btnEdit
         '
-        Me.btnEdit.Location = New System.Drawing.Point(168, 19)
+        Me.btnEdit.Location = New System.Drawing.Point(87, 19)
         Me.btnEdit.Name = "btnEdit"
         Me.btnEdit.Size = New System.Drawing.Size(75, 23)
-        Me.btnEdit.TabIndex = 0
+        Me.btnEdit.TabIndex = 1
         Me.btnEdit.Text = "Edit"
         Me.btnEdit.UseVisualStyleBackColor = True
         '
+        'txtKode
+        '
+        Me.txtKode.Enabled = False
+        Me.txtKode.Location = New System.Drawing.Point(366, 12)
+        Me.txtKode.Name = "txtKode"
+        Me.txtKode.ReadOnly = True
+        Me.txtKode.Size = New System.Drawing.Size(25, 20)
+        Me.txtKode.TabIndex = 9
+        Me.txtKode.TabStop = False
+        '
         'FrmObat
         '
+        Me.AcceptButton = Me.btnSave
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.ClientSize = New System.Drawing.Size(800, 450)
@@ -213,4 +224,5 @@ Partial Class FrmObat
     Friend WithEvents lblHarga As Label
     Friend WithEvents btnDelete As Button
     Friend WithEvents btnInsert As Button
+    Friend WithEvents txtKode As TextBox
 End Class

@@ -5,7 +5,7 @@ Public Class ClsDiagnosa
     Dim no As Integer = 1
 
     Public Sub ShowGejala(txt As RichTextBox)
-        cmdg = New OleDbCommand("SELECT * FROM [Gejala] WHERE [Kode] = 'G" & no & "'", conn)
+        cmdg = New OleDbCommand("SELECT * FROM [Gejala] WHERE [Kode] = " & no & "", conn)
         If conn.State = ConnectionState.Closed Then
             conn.Open()
         End If
@@ -20,7 +20,7 @@ Public Class ClsDiagnosa
     End Sub
 
     Public Sub GejalaYa(rtxt As RichTextBox)
-        cmdy = New OleDbCommand("SELECT * FROM [Gejala] WHERE [Kode] = 'G" & no & "'", conn)
+        cmdy = New OleDbCommand("SELECT * FROM [Gejala] WHERE [Kode] = " & no & "", conn)
         If conn.State = ConnectionState.Closed Then
             conn.Open()
         End If
@@ -35,7 +35,7 @@ Public Class ClsDiagnosa
     End Sub
 
     Public Sub GejalaTidak(rtxt As RichTextBox)
-        cmdt = New OleDbCommand("SELECT * FROM [Gejala] WHERE [Kode] = 'G" & no & "'", conn)
+        cmdt = New OleDbCommand("SELECT * FROM [Gejala] WHERE [Kode] = " & no & "", conn)
         If conn.State = ConnectionState.Closed Then
             conn.Open()
         End If
@@ -50,7 +50,7 @@ Public Class ClsDiagnosa
     End Sub
 
     Public Sub ShowSolusi(txt As String)
-        cmds = New OleDbCommand("SELECT * FROM [Solusi] WHERE [Kode] = '" & txt & "'", conn)
+        cmds = New OleDbCommand("SELECT * FROM [Solusi] WHERE [Kode] = " & txt & "", conn)
         If conn.State = ConnectionState.Closed Then
             conn.Open()
         End If
@@ -63,7 +63,7 @@ Public Class ClsDiagnosa
         End If
         cmds.Dispose()
 
-        Dim result = MsgBox("Mau Menyimpan Hasil Diagnosa Anda?", MsgBoxStyle.Question, "Hasil Diagnosa")
+        Dim result = MsgBox("Mau Menyimpan Hasil Diagnosa Anda?", MsgBoxStyle.YesNo, "Hasil Diagnosa")
         If result = MsgBoxResult.Yes Then
             MsgBox("Tersimpan", MsgBoxStyle.Information, "Hasil Diagnosa Tersimpan")
             FrmDiagnosa.Close()
@@ -75,7 +75,7 @@ Public Class ClsDiagnosa
             no += 1
             ShowGejala(rtxt)
         ElseIf txt.Substring(0, 1) = "S" Then 'Jika Awalan Kode "S" Tampilkan Solusi
-            ShowSolusi(txt)
+            ShowSolusi(txt.Remove(0, 1))
         End If
     End Sub
 End Class

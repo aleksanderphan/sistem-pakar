@@ -32,7 +32,7 @@ Represents a strongly typed in-memory cache of data.
 Represents the strongly named DataTable class.
 </summary>
 </member>
-<member name="T:SistemPakar.DBSistemPakarDataSet.Harga_ObatDataTable">
+<member name="T:SistemPakar.DBSistemPakarDataSet.ObatDataTable">
 <summary>
 Represents the strongly named DataTable class.
 </summary>
@@ -52,7 +52,7 @@ Represents the strongly named DataTable class.
 Represents strongly named DataRow class.
 </summary>
 </member>
-<member name="T:SistemPakar.DBSistemPakarDataSet.Harga_ObatRow">
+<member name="T:SistemPakar.DBSistemPakarDataSet.ObatRow">
 <summary>
 Represents strongly named DataRow class.
 </summary>
@@ -72,7 +72,7 @@ Represents strongly named DataRow class.
 Row event argument class
 </summary>
 </member>
-<member name="T:SistemPakar.DBSistemPakarDataSet.Harga_ObatRowChangeEvent">
+<member name="T:SistemPakar.DBSistemPakarDataSet.ObatRowChangeEvent">
 <summary>
 Row event argument class
 </summary>
@@ -92,7 +92,7 @@ Row event argument class
 Represents the connection and commands used to retrieve and save data.
 </summary>
 </member>
-<member name="T:SistemPakar.DBSistemPakarDataSetTableAdapters.Harga_ObatTableAdapter">
+<member name="T:SistemPakar.DBSistemPakarDataSetTableAdapters.ObatTableAdapter">
 <summary>
 Represents the connection and commands used to retrieve and save data.
 </summary>

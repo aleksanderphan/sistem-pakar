@@ -2,7 +2,7 @@
 
 Module ModConnection
 
-    Public conn As New OleDbConnection("Provider=Microsoft.ACE.OLEDB.12.0;Data Source=|DataDirectory|\DBSistemPakar.accdb")
+    Public conn As New OleDbConnection(My.Settings.DBSistemPakarConnectionString)
     Public cmd, cmdy, cmdt, cmdg, cmds As New OleDbCommand
     Public dt As New DataTable
     Public ds As New DataSet
@@ -12,14 +12,13 @@ Module ModConnection
     Public Function LoadTable(query As String) As DataTable
         conn.Open()
         Try
-            cmd = New OleDbCommand(query, conn)
-            dr = cmd.ExecuteReader
+            da = New OleDbDataAdapter(query, conn)
+            da.Fill(dt)
         Catch ex As Exception
             MsgBox(ex.ToString)
         End Try
 
-        dt.Load(dr)
-        cmd.Dispose() : dr.Close() : conn.Close()
+        conn.Close()
         Return dt
     End Function
 End Module

@@ -27,7 +27,7 @@ Partial Public Class DBSistemPakarDataSet
     
     Private tableGejala As GejalaDataTable
     
-    Private tableHarga_Obat As Harga_ObatDataTable
+    Private tableObat As ObatDataTable
     
     Private tableSolusi As SolusiDataTable
     
@@ -65,8 +65,8 @@ Partial Public Class DBSistemPakarDataSet
             If (Not (ds.Tables("Gejala")) Is Nothing) Then
                 MyBase.Tables.Add(New GejalaDataTable(ds.Tables("Gejala")))
             End If
-            If (Not (ds.Tables("Harga_Obat")) Is Nothing) Then
-                MyBase.Tables.Add(New Harga_ObatDataTable(ds.Tables("Harga_Obat")))
+            If (Not (ds.Tables("Obat")) Is Nothing) Then
+                MyBase.Tables.Add(New ObatDataTable(ds.Tables("Obat")))
             End If
             If (Not (ds.Tables("Solusi")) Is Nothing) Then
                 MyBase.Tables.Add(New SolusiDataTable(ds.Tables("Solusi")))
@@ -105,9 +105,9 @@ Partial Public Class DBSistemPakarDataSet
      Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0"),  _
      Global.System.ComponentModel.Browsable(false),  _
      Global.System.ComponentModel.DesignerSerializationVisibility(Global.System.ComponentModel.DesignerSerializationVisibility.Content)>  _
-    Public ReadOnly Property Harga_Obat() As Harga_ObatDataTable
+    Public ReadOnly Property Obat() As ObatDataTable
         Get
-            Return Me.tableHarga_Obat
+            Return Me.tableObat
         End Get
     End Property
     
@@ -201,8 +201,8 @@ Partial Public Class DBSistemPakarDataSet
             If (Not (ds.Tables("Gejala")) Is Nothing) Then
                 MyBase.Tables.Add(New GejalaDataTable(ds.Tables("Gejala")))
             End If
-            If (Not (ds.Tables("Harga_Obat")) Is Nothing) Then
-                MyBase.Tables.Add(New Harga_ObatDataTable(ds.Tables("Harga_Obat")))
+            If (Not (ds.Tables("Obat")) Is Nothing) Then
+                MyBase.Tables.Add(New ObatDataTable(ds.Tables("Obat")))
             End If
             If (Not (ds.Tables("Solusi")) Is Nothing) Then
                 MyBase.Tables.Add(New SolusiDataTable(ds.Tables("Solusi")))
@@ -248,10 +248,10 @@ Partial Public Class DBSistemPakarDataSet
                 Me.tableGejala.InitVars
             End If
         End If
-        Me.tableHarga_Obat = CType(MyBase.Tables("Harga_Obat"),Harga_ObatDataTable)
+        Me.tableObat = CType(MyBase.Tables("Obat"),ObatDataTable)
         If (initTable = true) Then
-            If (Not (Me.tableHarga_Obat) Is Nothing) Then
-                Me.tableHarga_Obat.InitVars
+            If (Not (Me.tableObat) Is Nothing) Then
+                Me.tableObat.InitVars
             End If
         End If
         Me.tableSolusi = CType(MyBase.Tables("Solusi"),SolusiDataTable)
@@ -278,8 +278,8 @@ Partial Public Class DBSistemPakarDataSet
         Me.SchemaSerializationMode = Global.System.Data.SchemaSerializationMode.IncludeSchema
         Me.tableGejala = New GejalaDataTable()
         MyBase.Tables.Add(Me.tableGejala)
-        Me.tableHarga_Obat = New Harga_ObatDataTable()
-        MyBase.Tables.Add(Me.tableHarga_Obat)
+        Me.tableObat = New ObatDataTable()
+        MyBase.Tables.Add(Me.tableObat)
         Me.tableSolusi = New SolusiDataTable()
         MyBase.Tables.Add(Me.tableSolusi)
         Me.tableUser = New UserDataTable()
@@ -294,7 +294,7 @@ Partial Public Class DBSistemPakarDataSet
     
     <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
      Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>  _
-    Private Function ShouldSerializeHarga_Obat() As Boolean
+    Private Function ShouldSerializeObat() As Boolean
         Return false
     End Function
     
@@ -372,7 +372,7 @@ Partial Public Class DBSistemPakarDataSet
     Public Delegate Sub GejalaRowChangeEventHandler(ByVal sender As Object, ByVal e As GejalaRowChangeEvent)
     
     <Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>  _
-    Public Delegate Sub Harga_ObatRowChangeEventHandler(ByVal sender As Object, ByVal e As Harga_ObatRowChangeEvent)
+    Public Delegate Sub ObatRowChangeEventHandler(ByVal sender As Object, ByVal e As ObatRowChangeEvent)
     
     <Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>  _
     Public Delegate Sub SolusiRowChangeEventHandler(ByVal sender As Object, ByVal e As SolusiRowChangeEvent)
@@ -510,9 +510,9 @@ Partial Public Class DBSistemPakarDataSet
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>  _
-        Public Overloads Function AddGejalaRow(ByVal Kode As String, ByVal Pertanyaan As String, ByVal Ya As String, ByVal Tidak As String, ByVal Obat As String) As GejalaRow
+        Public Overloads Function AddGejalaRow(ByVal Pertanyaan As String, ByVal Ya As String, ByVal Tidak As String, ByVal Obat As String) As GejalaRow
             Dim rowGejalaRow As GejalaRow = CType(Me.NewRow,GejalaRow)
-            Dim columnValuesArray() As Object = New Object() {Kode, Pertanyaan, Ya, Tidak, Obat}
+            Dim columnValuesArray() As Object = New Object() {Nothing, Pertanyaan, Ya, Tidak, Obat}
             rowGejalaRow.ItemArray = columnValuesArray
             Me.Rows.Add(rowGejalaRow)
             Return rowGejalaRow
@@ -520,7 +520,7 @@ Partial Public Class DBSistemPakarDataSet
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>  _
-        Public Function FindByKode(ByVal Kode As String) As GejalaRow
+        Public Function FindByKode(ByVal Kode As Integer) As GejalaRow
             Return CType(Me.Rows.Find(New Object() {Kode}),GejalaRow)
         End Function
         
@@ -551,7 +551,7 @@ Partial Public Class DBSistemPakarDataSet
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>  _
         Private Sub InitClass()
-            Me.columnKode = New Global.System.Data.DataColumn("Kode", GetType(String), Nothing, Global.System.Data.MappingType.Element)
+            Me.columnKode = New Global.System.Data.DataColumn("Kode", GetType(Integer), Nothing, Global.System.Data.MappingType.Element)
             MyBase.Columns.Add(Me.columnKode)
             Me.columnPertanyaan = New Global.System.Data.DataColumn("Pertanyaan", GetType(String), Nothing, Global.System.Data.MappingType.Element)
             MyBase.Columns.Add(Me.columnPertanyaan)
@@ -562,9 +562,11 @@ Partial Public Class DBSistemPakarDataSet
             Me.columnObat = New Global.System.Data.DataColumn("Obat", GetType(String), Nothing, Global.System.Data.MappingType.Element)
             MyBase.Columns.Add(Me.columnObat)
             Me.Constraints.Add(New Global.System.Data.UniqueConstraint("Constraint1", New Global.System.Data.DataColumn() {Me.columnKode}, true))
+            Me.columnKode.AutoIncrement = true
+            Me.columnKode.AutoIncrementSeed = -1
+            Me.columnKode.AutoIncrementStep = -1
             Me.columnKode.AllowDBNull = false
             Me.columnKode.Unique = true
-            Me.columnKode.MaxLength = 255
             Me.columnPertanyaan.MaxLength = 255
             Me.columnYa.MaxLength = 255
             Me.columnTidak.MaxLength = 255
@@ -703,20 +705,22 @@ Partial Public Class DBSistemPakarDataSet
     '''</summary>
     <Global.System.Serializable(),  _
      Global.System.Xml.Serialization.XmlSchemaProviderAttribute("GetTypedTableSchema")>  _
-    Partial Public Class Harga_ObatDataTable
-        Inherits Global.System.Data.TypedTableBase(Of Harga_ObatRow)
+    Partial Public Class ObatDataTable
+        Inherits Global.System.Data.TypedTableBase(Of ObatRow)
         
-        Private columnKode_Obat As Global.System.Data.DataColumn
+        Private columnKode As Global.System.Data.DataColumn
         
-        Private columnNama_Obat As Global.System.Data.DataColumn
+        Private columnNama As Global.System.Data.DataColumn
         
         Private columnHarga As Global.System.Data.DataColumn
+        
+        Private columnSatuan As Global.System.Data.DataColumn
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>  _
         Public Sub New()
             MyBase.New
-            Me.TableName = "Harga_Obat"
+            Me.TableName = "Obat"
             Me.BeginInit
             Me.InitClass
             Me.EndInit
@@ -749,17 +753,17 @@ Partial Public Class DBSistemPakarDataSet
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>  _
-        Public ReadOnly Property Kode_ObatColumn() As Global.System.Data.DataColumn
+        Public ReadOnly Property KodeColumn() As Global.System.Data.DataColumn
             Get
-                Return Me.columnKode_Obat
+                Return Me.columnKode
             End Get
         End Property
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>  _
-        Public ReadOnly Property Nama_ObatColumn() As Global.System.Data.DataColumn
+        Public ReadOnly Property NamaColumn() As Global.System.Data.DataColumn
             Get
-                Return Me.columnNama_Obat
+                Return Me.columnNama
             End Get
         End Property
         
@@ -768,6 +772,14 @@ Partial Public Class DBSistemPakarDataSet
         Public ReadOnly Property HargaColumn() As Global.System.Data.DataColumn
             Get
                 Return Me.columnHarga
+            End Get
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>  _
+        Public ReadOnly Property SatuanColumn() As Global.System.Data.DataColumn
+            Get
+                Return Me.columnSatuan
             End Get
         End Property
         
@@ -782,44 +794,50 @@ Partial Public Class DBSistemPakarDataSet
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>  _
-        Public Default ReadOnly Property Item(ByVal index As Integer) As Harga_ObatRow
+        Public Default ReadOnly Property Item(ByVal index As Integer) As ObatRow
             Get
-                Return CType(Me.Rows(index),Harga_ObatRow)
+                Return CType(Me.Rows(index),ObatRow)
             End Get
         End Property
         
         <Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>  _
-        Public Event Harga_ObatRowChanging As Harga_ObatRowChangeEventHandler
+        Public Event ObatRowChanging As ObatRowChangeEventHandler
         
         <Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>  _
-        Public Event Harga_ObatRowChanged As Harga_ObatRowChangeEventHandler
+        Public Event ObatRowChanged As ObatRowChangeEventHandler
         
         <Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>  _
-        Public Event Harga_ObatRowDeleting As Harga_ObatRowChangeEventHandler
+        Public Event ObatRowDeleting As ObatRowChangeEventHandler
         
         <Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>  _
-        Public Event Harga_ObatRowDeleted As Harga_ObatRowChangeEventHandler
+        Public Event ObatRowDeleted As ObatRowChangeEventHandler
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>  _
-        Public Overloads Sub AddHarga_ObatRow(ByVal row As Harga_ObatRow)
+        Public Overloads Sub AddObatRow(ByVal row As ObatRow)
             Me.Rows.Add(row)
         End Sub
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>  _
-        Public Overloads Function AddHarga_ObatRow(ByVal Kode_Obat As String, ByVal Nama_Obat As String, ByVal Harga As Decimal) As Harga_ObatRow
-            Dim rowHarga_ObatRow As Harga_ObatRow = CType(Me.NewRow,Harga_ObatRow)
-            Dim columnValuesArray() As Object = New Object() {Kode_Obat, Nama_Obat, Harga}
-            rowHarga_ObatRow.ItemArray = columnValuesArray
-            Me.Rows.Add(rowHarga_ObatRow)
-            Return rowHarga_ObatRow
+        Public Overloads Function AddObatRow(ByVal Nama As String, ByVal Harga As Decimal, ByVal Satuan As String) As ObatRow
+            Dim rowObatRow As ObatRow = CType(Me.NewRow,ObatRow)
+            Dim columnValuesArray() As Object = New Object() {Nothing, Nama, Harga, Satuan}
+            rowObatRow.ItemArray = columnValuesArray
+            Me.Rows.Add(rowObatRow)
+            Return rowObatRow
+        End Function
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>  _
+        Public Function FindByKode(ByVal Kode As Integer) As ObatRow
+            Return CType(Me.Rows.Find(New Object() {Kode}),ObatRow)
         End Function
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>  _
         Public Overrides Function Clone() As Global.System.Data.DataTable
-            Dim cln As Harga_ObatDataTable = CType(MyBase.Clone,Harga_ObatDataTable)
+            Dim cln As ObatDataTable = CType(MyBase.Clone,ObatDataTable)
             cln.InitVars
             Return cln
         End Function
@@ -827,54 +845,63 @@ Partial Public Class DBSistemPakarDataSet
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>  _
         Protected Overrides Function CreateInstance() As Global.System.Data.DataTable
-            Return New Harga_ObatDataTable()
+            Return New ObatDataTable()
         End Function
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>  _
         Friend Sub InitVars()
-            Me.columnKode_Obat = MyBase.Columns("Kode_Obat")
-            Me.columnNama_Obat = MyBase.Columns("Nama_Obat")
+            Me.columnKode = MyBase.Columns("Kode")
+            Me.columnNama = MyBase.Columns("Nama")
             Me.columnHarga = MyBase.Columns("Harga")
+            Me.columnSatuan = MyBase.Columns("Satuan")
         End Sub
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>  _
         Private Sub InitClass()
-            Me.columnKode_Obat = New Global.System.Data.DataColumn("Kode_Obat", GetType(String), Nothing, Global.System.Data.MappingType.Element)
-            MyBase.Columns.Add(Me.columnKode_Obat)
-            Me.columnNama_Obat = New Global.System.Data.DataColumn("Nama_Obat", GetType(String), Nothing, Global.System.Data.MappingType.Element)
-            MyBase.Columns.Add(Me.columnNama_Obat)
+            Me.columnKode = New Global.System.Data.DataColumn("Kode", GetType(Integer), Nothing, Global.System.Data.MappingType.Element)
+            MyBase.Columns.Add(Me.columnKode)
+            Me.columnNama = New Global.System.Data.DataColumn("Nama", GetType(String), Nothing, Global.System.Data.MappingType.Element)
+            MyBase.Columns.Add(Me.columnNama)
             Me.columnHarga = New Global.System.Data.DataColumn("Harga", GetType(Decimal), Nothing, Global.System.Data.MappingType.Element)
             MyBase.Columns.Add(Me.columnHarga)
-            Me.columnKode_Obat.MaxLength = 255
-            Me.columnNama_Obat.MaxLength = 536870910
+            Me.columnSatuan = New Global.System.Data.DataColumn("Satuan", GetType(String), Nothing, Global.System.Data.MappingType.Element)
+            MyBase.Columns.Add(Me.columnSatuan)
+            Me.Constraints.Add(New Global.System.Data.UniqueConstraint("Constraint1", New Global.System.Data.DataColumn() {Me.columnKode}, true))
+            Me.columnKode.AutoIncrement = true
+            Me.columnKode.AutoIncrementSeed = -1
+            Me.columnKode.AutoIncrementStep = -1
+            Me.columnKode.AllowDBNull = false
+            Me.columnKode.Unique = true
+            Me.columnNama.MaxLength = 536870910
+            Me.columnSatuan.MaxLength = 536870910
         End Sub
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>  _
-        Public Function NewHarga_ObatRow() As Harga_ObatRow
-            Return CType(Me.NewRow,Harga_ObatRow)
+        Public Function NewObatRow() As ObatRow
+            Return CType(Me.NewRow,ObatRow)
         End Function
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>  _
         Protected Overrides Function NewRowFromBuilder(ByVal builder As Global.System.Data.DataRowBuilder) As Global.System.Data.DataRow
-            Return New Harga_ObatRow(builder)
+            Return New ObatRow(builder)
         End Function
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>  _
         Protected Overrides Function GetRowType() As Global.System.Type
-            Return GetType(Harga_ObatRow)
+            Return GetType(ObatRow)
         End Function
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>  _
         Protected Overrides Sub OnRowChanged(ByVal e As Global.System.Data.DataRowChangeEventArgs)
             MyBase.OnRowChanged(e)
-            If (Not (Me.Harga_ObatRowChangedEvent) Is Nothing) Then
-                RaiseEvent Harga_ObatRowChanged(Me, New Harga_ObatRowChangeEvent(CType(e.Row,Harga_ObatRow), e.Action))
+            If (Not (Me.ObatRowChangedEvent) Is Nothing) Then
+                RaiseEvent ObatRowChanged(Me, New ObatRowChangeEvent(CType(e.Row,ObatRow), e.Action))
             End If
         End Sub
         
@@ -882,8 +909,8 @@ Partial Public Class DBSistemPakarDataSet
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>  _
         Protected Overrides Sub OnRowChanging(ByVal e As Global.System.Data.DataRowChangeEventArgs)
             MyBase.OnRowChanging(e)
-            If (Not (Me.Harga_ObatRowChangingEvent) Is Nothing) Then
-                RaiseEvent Harga_ObatRowChanging(Me, New Harga_ObatRowChangeEvent(CType(e.Row,Harga_ObatRow), e.Action))
+            If (Not (Me.ObatRowChangingEvent) Is Nothing) Then
+                RaiseEvent ObatRowChanging(Me, New ObatRowChangeEvent(CType(e.Row,ObatRow), e.Action))
             End If
         End Sub
         
@@ -891,8 +918,8 @@ Partial Public Class DBSistemPakarDataSet
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>  _
         Protected Overrides Sub OnRowDeleted(ByVal e As Global.System.Data.DataRowChangeEventArgs)
             MyBase.OnRowDeleted(e)
-            If (Not (Me.Harga_ObatRowDeletedEvent) Is Nothing) Then
-                RaiseEvent Harga_ObatRowDeleted(Me, New Harga_ObatRowChangeEvent(CType(e.Row,Harga_ObatRow), e.Action))
+            If (Not (Me.ObatRowDeletedEvent) Is Nothing) Then
+                RaiseEvent ObatRowDeleted(Me, New ObatRowChangeEvent(CType(e.Row,ObatRow), e.Action))
             End If
         End Sub
         
@@ -900,14 +927,14 @@ Partial Public Class DBSistemPakarDataSet
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>  _
         Protected Overrides Sub OnRowDeleting(ByVal e As Global.System.Data.DataRowChangeEventArgs)
             MyBase.OnRowDeleting(e)
-            If (Not (Me.Harga_ObatRowDeletingEvent) Is Nothing) Then
-                RaiseEvent Harga_ObatRowDeleting(Me, New Harga_ObatRowChangeEvent(CType(e.Row,Harga_ObatRow), e.Action))
+            If (Not (Me.ObatRowDeletingEvent) Is Nothing) Then
+                RaiseEvent ObatRowDeleting(Me, New ObatRowChangeEvent(CType(e.Row,ObatRow), e.Action))
             End If
         End Sub
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>  _
-        Public Sub RemoveHarga_ObatRow(ByVal row As Harga_ObatRow)
+        Public Sub RemoveObatRow(ByVal row As ObatRow)
             Me.Rows.Remove(row)
         End Sub
         
@@ -934,7 +961,7 @@ Partial Public Class DBSistemPakarDataSet
             type.Attributes.Add(attribute1)
             Dim attribute2 As Global.System.Xml.Schema.XmlSchemaAttribute = New Global.System.Xml.Schema.XmlSchemaAttribute()
             attribute2.Name = "tableTypeName"
-            attribute2.FixedValue = "Harga_ObatDataTable"
+            attribute2.FixedValue = "ObatDataTable"
             type.Attributes.Add(attribute2)
             type.Particle = sequence
             Dim dsSchema As Global.System.Xml.Schema.XmlSchema = ds.GetSchemaSerializable
@@ -988,11 +1015,9 @@ Partial Public Class DBSistemPakarDataSet
         
         Private columnKode As Global.System.Data.DataColumn
         
-        Private columnJenis_Penyakit As Global.System.Data.DataColumn
+        Private columnJenisPenyakit As Global.System.Data.DataColumn
         
         Private columnSolusi As Global.System.Data.DataColumn
-        
-        Private columnObat_Alami As Global.System.Data.DataColumn
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>  _
@@ -1039,9 +1064,9 @@ Partial Public Class DBSistemPakarDataSet
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>  _
-        Public ReadOnly Property Jenis_PenyakitColumn() As Global.System.Data.DataColumn
+        Public ReadOnly Property JenisPenyakitColumn() As Global.System.Data.DataColumn
             Get
-                Return Me.columnJenis_Penyakit
+                Return Me.columnJenisPenyakit
             End Get
         End Property
         
@@ -1050,14 +1075,6 @@ Partial Public Class DBSistemPakarDataSet
         Public ReadOnly Property SolusiColumn() As Global.System.Data.DataColumn
             Get
                 Return Me.columnSolusi
-            End Get
-        End Property
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>  _
-        Public ReadOnly Property Obat_AlamiColumn() As Global.System.Data.DataColumn
-            Get
-                Return Me.columnObat_Alami
             End Get
         End Property
         
@@ -1098,12 +1115,18 @@ Partial Public Class DBSistemPakarDataSet
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>  _
-        Public Overloads Function AddSolusiRow(ByVal Kode As String, ByVal Jenis_Penyakit As String, ByVal Solusi As String, ByVal Obat_Alami As String) As SolusiRow
+        Public Overloads Function AddSolusiRow(ByVal JenisPenyakit As String, ByVal Solusi As String) As SolusiRow
             Dim rowSolusiRow As SolusiRow = CType(Me.NewRow,SolusiRow)
-            Dim columnValuesArray() As Object = New Object() {Kode, Jenis_Penyakit, Solusi, Obat_Alami}
+            Dim columnValuesArray() As Object = New Object() {Nothing, JenisPenyakit, Solusi}
             rowSolusiRow.ItemArray = columnValuesArray
             Me.Rows.Add(rowSolusiRow)
             Return rowSolusiRow
+        End Function
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>  _
+        Public Function FindByKode(ByVal Kode As Integer) As SolusiRow
+            Return CType(Me.Rows.Find(New Object() {Kode}),SolusiRow)
         End Function
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
@@ -1124,26 +1147,27 @@ Partial Public Class DBSistemPakarDataSet
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>  _
         Friend Sub InitVars()
             Me.columnKode = MyBase.Columns("Kode")
-            Me.columnJenis_Penyakit = MyBase.Columns("Jenis_Penyakit")
+            Me.columnJenisPenyakit = MyBase.Columns("JenisPenyakit")
             Me.columnSolusi = MyBase.Columns("Solusi")
-            Me.columnObat_Alami = MyBase.Columns("Obat Alami")
         End Sub
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>  _
         Private Sub InitClass()
-            Me.columnKode = New Global.System.Data.DataColumn("Kode", GetType(String), Nothing, Global.System.Data.MappingType.Element)
+            Me.columnKode = New Global.System.Data.DataColumn("Kode", GetType(Integer), Nothing, Global.System.Data.MappingType.Element)
             MyBase.Columns.Add(Me.columnKode)
-            Me.columnJenis_Penyakit = New Global.System.Data.DataColumn("Jenis_Penyakit", GetType(String), Nothing, Global.System.Data.MappingType.Element)
-            MyBase.Columns.Add(Me.columnJenis_Penyakit)
+            Me.columnJenisPenyakit = New Global.System.Data.DataColumn("JenisPenyakit", GetType(String), Nothing, Global.System.Data.MappingType.Element)
+            MyBase.Columns.Add(Me.columnJenisPenyakit)
             Me.columnSolusi = New Global.System.Data.DataColumn("Solusi", GetType(String), Nothing, Global.System.Data.MappingType.Element)
             MyBase.Columns.Add(Me.columnSolusi)
-            Me.columnObat_Alami = New Global.System.Data.DataColumn("Obat Alami", GetType(String), Nothing, Global.System.Data.MappingType.Element)
-            MyBase.Columns.Add(Me.columnObat_Alami)
-            Me.columnKode.MaxLength = 536870910
-            Me.columnJenis_Penyakit.MaxLength = 536870910
+            Me.Constraints.Add(New Global.System.Data.UniqueConstraint("Constraint1", New Global.System.Data.DataColumn() {Me.columnKode}, true))
+            Me.columnKode.AutoIncrement = true
+            Me.columnKode.AutoIncrementSeed = -1
+            Me.columnKode.AutoIncrementStep = -1
+            Me.columnKode.AllowDBNull = false
+            Me.columnKode.Unique = true
+            Me.columnJenisPenyakit.MaxLength = 255
             Me.columnSolusi.MaxLength = 536870910
-            Me.columnObat_Alami.MaxLength = 536870910
         End Sub
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
@@ -1287,6 +1311,8 @@ Partial Public Class DBSistemPakarDataSet
         
         Private columnPassword As Global.System.Data.DataColumn
         
+        Private columnType As Global.System.Data.DataColumn
+        
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>  _
         Public Sub New()
@@ -1347,6 +1373,14 @@ Partial Public Class DBSistemPakarDataSet
         End Property
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>  _
+        Public ReadOnly Property TypeColumn() As Global.System.Data.DataColumn
+            Get
+                Return Me.columnType
+            End Get
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0"),  _
          Global.System.ComponentModel.Browsable(false)>  _
         Public ReadOnly Property Count() As Integer
@@ -1383,9 +1417,9 @@ Partial Public Class DBSistemPakarDataSet
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>  _
-        Public Overloads Function AddUserRow(ByVal Username As String, ByVal Password As String) As UserRow
+        Public Overloads Function AddUserRow(ByVal Username As String, ByVal Password As String, ByVal Type As String) As UserRow
             Dim rowUserRow As UserRow = CType(Me.NewRow,UserRow)
-            Dim columnValuesArray() As Object = New Object() {Nothing, Username, Password}
+            Dim columnValuesArray() As Object = New Object() {Nothing, Username, Password, Type}
             rowUserRow.ItemArray = columnValuesArray
             Me.Rows.Add(rowUserRow)
             Return rowUserRow
@@ -1417,6 +1451,7 @@ Partial Public Class DBSistemPakarDataSet
             Me.columnID = MyBase.Columns("ID")
             Me.columnUsername = MyBase.Columns("Username")
             Me.columnPassword = MyBase.Columns("Password")
+            Me.columnType = MyBase.Columns("Type")
         End Sub
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
@@ -1428,6 +1463,8 @@ Partial Public Class DBSistemPakarDataSet
             MyBase.Columns.Add(Me.columnUsername)
             Me.columnPassword = New Global.System.Data.DataColumn("Password", GetType(String), Nothing, Global.System.Data.MappingType.Element)
             MyBase.Columns.Add(Me.columnPassword)
+            Me.columnType = New Global.System.Data.DataColumn("Type", GetType(String), Nothing, Global.System.Data.MappingType.Element)
+            MyBase.Columns.Add(Me.columnType)
             Me.Constraints.Add(New Global.System.Data.UniqueConstraint("Constraint1", New Global.System.Data.DataColumn() {Me.columnID}, true))
             Me.columnID.AutoIncrement = true
             Me.columnID.AutoIncrementSeed = -1
@@ -1436,6 +1473,7 @@ Partial Public Class DBSistemPakarDataSet
             Me.columnID.Unique = true
             Me.columnUsername.MaxLength = 255
             Me.columnPassword.MaxLength = 255
+            Me.columnType.MaxLength = 255
         End Sub
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
@@ -1582,9 +1620,9 @@ Partial Public Class DBSistemPakarDataSet
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>  _
-        Public Property Kode() As String
+        Public Property Kode() As Integer
             Get
-                Return CType(Me(Me.tableGejala.KodeColumn),String)
+                Return CType(Me(Me.tableGejala.KodeColumn),Integer)
             End Get
             Set
                 Me(Me.tableGejala.KodeColumn) = value
@@ -1703,45 +1741,41 @@ Partial Public Class DBSistemPakarDataSet
     '''<summary>
     '''Represents strongly named DataRow class.
     '''</summary>
-    Partial Public Class Harga_ObatRow
+    Partial Public Class ObatRow
         Inherits Global.System.Data.DataRow
         
-        Private tableHarga_Obat As Harga_ObatDataTable
+        Private tableObat As ObatDataTable
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>  _
         Friend Sub New(ByVal rb As Global.System.Data.DataRowBuilder)
             MyBase.New(rb)
-            Me.tableHarga_Obat = CType(Me.Table,Harga_ObatDataTable)
+            Me.tableObat = CType(Me.Table,ObatDataTable)
         End Sub
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>  _
-        Public Property Kode_Obat() As String
+        Public Property Kode() As Integer
             Get
-                Try 
-                    Return CType(Me(Me.tableHarga_Obat.Kode_ObatColumn),String)
-                Catch e As Global.System.InvalidCastException
-                    Throw New Global.System.Data.StrongTypingException("The value for column 'Kode_Obat' in table 'Harga_Obat' is DBNull.", e)
-                End Try
+                Return CType(Me(Me.tableObat.KodeColumn),Integer)
             End Get
             Set
-                Me(Me.tableHarga_Obat.Kode_ObatColumn) = value
+                Me(Me.tableObat.KodeColumn) = value
             End Set
         End Property
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>  _
-        Public Property Nama_Obat() As String
+        Public Property Nama() As String
             Get
                 Try 
-                    Return CType(Me(Me.tableHarga_Obat.Nama_ObatColumn),String)
+                    Return CType(Me(Me.tableObat.NamaColumn),String)
                 Catch e As Global.System.InvalidCastException
-                    Throw New Global.System.Data.StrongTypingException("The value for column 'Nama_Obat' in table 'Harga_Obat' is DBNull.", e)
+                    Throw New Global.System.Data.StrongTypingException("The value for column 'Nama' in table 'Obat' is DBNull.", e)
                 End Try
             End Get
             Set
-                Me(Me.tableHarga_Obat.Nama_ObatColumn) = value
+                Me(Me.tableObat.NamaColumn) = value
             End Set
         End Property
         
@@ -1750,50 +1784,65 @@ Partial Public Class DBSistemPakarDataSet
         Public Property Harga() As Decimal
             Get
                 Try 
-                    Return CType(Me(Me.tableHarga_Obat.HargaColumn),Decimal)
+                    Return CType(Me(Me.tableObat.HargaColumn),Decimal)
                 Catch e As Global.System.InvalidCastException
-                    Throw New Global.System.Data.StrongTypingException("The value for column 'Harga' in table 'Harga_Obat' is DBNull.", e)
+                    Throw New Global.System.Data.StrongTypingException("The value for column 'Harga' in table 'Obat' is DBNull.", e)
                 End Try
             End Get
             Set
-                Me(Me.tableHarga_Obat.HargaColumn) = value
+                Me(Me.tableObat.HargaColumn) = value
             End Set
         End Property
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>  _
-        Public Function IsKode_ObatNull() As Boolean
-            Return Me.IsNull(Me.tableHarga_Obat.Kode_ObatColumn)
+        Public Property Satuan() As String
+            Get
+                Try 
+                    Return CType(Me(Me.tableObat.SatuanColumn),String)
+                Catch e As Global.System.InvalidCastException
+                    Throw New Global.System.Data.StrongTypingException("The value for column 'Satuan' in table 'Obat' is DBNull.", e)
+                End Try
+            End Get
+            Set
+                Me(Me.tableObat.SatuanColumn) = value
+            End Set
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>  _
+        Public Function IsNamaNull() As Boolean
+            Return Me.IsNull(Me.tableObat.NamaColumn)
         End Function
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>  _
-        Public Sub SetKode_ObatNull()
-            Me(Me.tableHarga_Obat.Kode_ObatColumn) = Global.System.Convert.DBNull
-        End Sub
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>  _
-        Public Function IsNama_ObatNull() As Boolean
-            Return Me.IsNull(Me.tableHarga_Obat.Nama_ObatColumn)
-        End Function
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>  _
-        Public Sub SetNama_ObatNull()
-            Me(Me.tableHarga_Obat.Nama_ObatColumn) = Global.System.Convert.DBNull
+        Public Sub SetNamaNull()
+            Me(Me.tableObat.NamaColumn) = Global.System.Convert.DBNull
         End Sub
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>  _
         Public Function IsHargaNull() As Boolean
-            Return Me.IsNull(Me.tableHarga_Obat.HargaColumn)
+            Return Me.IsNull(Me.tableObat.HargaColumn)
         End Function
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>  _
         Public Sub SetHargaNull()
-            Me(Me.tableHarga_Obat.HargaColumn) = Global.System.Convert.DBNull
+            Me(Me.tableObat.HargaColumn) = Global.System.Convert.DBNull
+        End Sub
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>  _
+        Public Function IsSatuanNull() As Boolean
+            Return Me.IsNull(Me.tableObat.SatuanColumn)
+        End Function
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>  _
+        Public Sub SetSatuanNull()
+            Me(Me.tableObat.SatuanColumn) = Global.System.Convert.DBNull
         End Sub
     End Class
     
@@ -1814,13 +1863,9 @@ Partial Public Class DBSistemPakarDataSet
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>  _
-        Public Property Kode() As String
+        Public Property Kode() As Integer
             Get
-                Try 
-                    Return CType(Me(Me.tableSolusi.KodeColumn),String)
-                Catch e As Global.System.InvalidCastException
-                    Throw New Global.System.Data.StrongTypingException("The value for column 'Kode' in table 'Solusi' is DBNull.", e)
-                End Try
+                Return CType(Me(Me.tableSolusi.KodeColumn),Integer)
             End Get
             Set
                 Me(Me.tableSolusi.KodeColumn) = value
@@ -1829,16 +1874,16 @@ Partial Public Class DBSistemPakarDataSet
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>  _
-        Public Property Jenis_Penyakit() As String
+        Public Property JenisPenyakit() As String
             Get
                 Try 
-                    Return CType(Me(Me.tableSolusi.Jenis_PenyakitColumn),String)
+                    Return CType(Me(Me.tableSolusi.JenisPenyakitColumn),String)
                 Catch e As Global.System.InvalidCastException
-                    Throw New Global.System.Data.StrongTypingException("The value for column 'Jenis_Penyakit' in table 'Solusi' is DBNull.", e)
+                    Throw New Global.System.Data.StrongTypingException("The value for column 'JenisPenyakit' in table 'Solusi' is DBNull.", e)
                 End Try
             End Get
             Set
-                Me(Me.tableSolusi.Jenis_PenyakitColumn) = value
+                Me(Me.tableSolusi.JenisPenyakitColumn) = value
             End Set
         End Property
         
@@ -1859,41 +1904,14 @@ Partial Public Class DBSistemPakarDataSet
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>  _
-        Public Property Obat_Alami() As String
-            Get
-                Try 
-                    Return CType(Me(Me.tableSolusi.Obat_AlamiColumn),String)
-                Catch e As Global.System.InvalidCastException
-                    Throw New Global.System.Data.StrongTypingException("The value for column 'Obat Alami' in table 'Solusi' is DBNull.", e)
-                End Try
-            End Get
-            Set
-                Me(Me.tableSolusi.Obat_AlamiColumn) = value
-            End Set
-        End Property
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>  _
-        Public Function IsKodeNull() As Boolean
-            Return Me.IsNull(Me.tableSolusi.KodeColumn)
+        Public Function IsJenisPenyakitNull() As Boolean
+            Return Me.IsNull(Me.tableSolusi.JenisPenyakitColumn)
         End Function
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>  _
-        Public Sub SetKodeNull()
-            Me(Me.tableSolusi.KodeColumn) = Global.System.Convert.DBNull
-        End Sub
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>  _
-        Public Function IsJenis_PenyakitNull() As Boolean
-            Return Me.IsNull(Me.tableSolusi.Jenis_PenyakitColumn)
-        End Function
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>  _
-        Public Sub SetJenis_PenyakitNull()
-            Me(Me.tableSolusi.Jenis_PenyakitColumn) = Global.System.Convert.DBNull
+        Public Sub SetJenisPenyakitNull()
+            Me(Me.tableSolusi.JenisPenyakitColumn) = Global.System.Convert.DBNull
         End Sub
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
@@ -1906,18 +1924,6 @@ Partial Public Class DBSistemPakarDataSet
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>  _
         Public Sub SetSolusiNull()
             Me(Me.tableSolusi.SolusiColumn) = Global.System.Convert.DBNull
-        End Sub
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>  _
-        Public Function IsObat_AlamiNull() As Boolean
-            Return Me.IsNull(Me.tableSolusi.Obat_AlamiColumn)
-        End Function
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>  _
-        Public Sub SetObat_AlamiNull()
-            Me(Me.tableSolusi.Obat_AlamiColumn) = Global.System.Convert.DBNull
         End Sub
     End Class
     
@@ -1979,6 +1985,21 @@ Partial Public Class DBSistemPakarDataSet
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>  _
+        Public Property Type() As String
+            Get
+                Try 
+                    Return CType(Me(Me.tableUser.TypeColumn),String)
+                Catch e As Global.System.InvalidCastException
+                    Throw New Global.System.Data.StrongTypingException("The value for column 'Type' in table 'User' is DBNull.", e)
+                End Try
+            End Get
+            Set
+                Me(Me.tableUser.TypeColumn) = value
+            End Set
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>  _
         Public Function IsUsernameNull() As Boolean
             Return Me.IsNull(Me.tableUser.UsernameColumn)
         End Function
@@ -1999,6 +2020,18 @@ Partial Public Class DBSistemPakarDataSet
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>  _
         Public Sub SetPasswordNull()
             Me(Me.tableUser.PasswordColumn) = Global.System.Convert.DBNull
+        End Sub
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>  _
+        Public Function IsTypeNull() As Boolean
+            Return Me.IsNull(Me.tableUser.TypeColumn)
+        End Function
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>  _
+        Public Sub SetTypeNull()
+            Me(Me.tableUser.TypeColumn) = Global.System.Convert.DBNull
         End Sub
     End Class
     
@@ -2042,16 +2075,16 @@ Partial Public Class DBSistemPakarDataSet
     '''Row event argument class
     '''</summary>
     <Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>  _
-    Public Class Harga_ObatRowChangeEvent
+    Public Class ObatRowChangeEvent
         Inherits Global.System.EventArgs
         
-        Private eventRow As Harga_ObatRow
+        Private eventRow As ObatRow
         
         Private eventAction As Global.System.Data.DataRowAction
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>  _
-        Public Sub New(ByVal row As Harga_ObatRow, ByVal action As Global.System.Data.DataRowAction)
+        Public Sub New(ByVal row As ObatRow, ByVal action As Global.System.Data.DataRowAction)
             MyBase.New
             Me.eventRow = row
             Me.eventAction = action
@@ -2059,7 +2092,7 @@ Partial Public Class DBSistemPakarDataSet
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>  _
-        Public ReadOnly Property Row() As Harga_ObatRow
+        Public ReadOnly Property Row() As ObatRow
             Get
                 Return Me.eventRow
             End Get
@@ -2289,7 +2322,7 @@ Namespace DBSistemPakarDataSetTableAdapters
                 "D `Tidak` IS NULL) OR (`Tidak` = ?)) AND ((? = 1 AND `Obat` IS NULL) OR (`Obat` "& _ 
                 "= ?)))"
             Me._adapter.DeleteCommand.CommandType = Global.System.Data.CommandType.Text
-            Me._adapter.DeleteCommand.Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("Original_Kode", Global.System.Data.OleDb.OleDbType.VarWChar, 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "Kode", Global.System.Data.DataRowVersion.Original, false, Nothing))
+            Me._adapter.DeleteCommand.Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("Original_Kode", Global.System.Data.OleDb.OleDbType.[Integer], 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "Kode", Global.System.Data.DataRowVersion.Original, false, Nothing))
             Me._adapter.DeleteCommand.Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("IsNull_Pertanyaan", Global.System.Data.OleDb.OleDbType.[Integer], 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "Pertanyaan", Global.System.Data.DataRowVersion.Original, true, Nothing))
             Me._adapter.DeleteCommand.Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("Original_Pertanyaan", Global.System.Data.OleDb.OleDbType.VarWChar, 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "Pertanyaan", Global.System.Data.DataRowVersion.Original, false, Nothing))
             Me._adapter.DeleteCommand.Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("IsNull_Ya", Global.System.Data.OleDb.OleDbType.[Integer], 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "Ya", Global.System.Data.DataRowVersion.Original, true, Nothing))
@@ -2300,27 +2333,24 @@ Namespace DBSistemPakarDataSetTableAdapters
             Me._adapter.DeleteCommand.Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("Original_Obat", Global.System.Data.OleDb.OleDbType.VarWChar, 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "Obat", Global.System.Data.DataRowVersion.Original, false, Nothing))
             Me._adapter.InsertCommand = New Global.System.Data.OleDb.OleDbCommand()
             Me._adapter.InsertCommand.Connection = Me.Connection
-            Me._adapter.InsertCommand.CommandText = "INSERT INTO `Gejala` (`Kode`, `Pertanyaan`, `Ya`, `Tidak`, `Obat`) VALUES (?, ?, "& _ 
-                "?, ?, ?)"
+            Me._adapter.InsertCommand.CommandText = "INSERT INTO `Gejala` (`Pertanyaan`, `Ya`, `Tidak`, `Obat`) VALUES (?, ?, ?, ?)"
             Me._adapter.InsertCommand.CommandType = Global.System.Data.CommandType.Text
-            Me._adapter.InsertCommand.Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("Kode", Global.System.Data.OleDb.OleDbType.VarWChar, 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "Kode", Global.System.Data.DataRowVersion.Current, false, Nothing))
             Me._adapter.InsertCommand.Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("Pertanyaan", Global.System.Data.OleDb.OleDbType.VarWChar, 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "Pertanyaan", Global.System.Data.DataRowVersion.Current, false, Nothing))
             Me._adapter.InsertCommand.Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("Ya", Global.System.Data.OleDb.OleDbType.VarWChar, 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "Ya", Global.System.Data.DataRowVersion.Current, false, Nothing))
             Me._adapter.InsertCommand.Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("Tidak", Global.System.Data.OleDb.OleDbType.VarWChar, 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "Tidak", Global.System.Data.DataRowVersion.Current, false, Nothing))
             Me._adapter.InsertCommand.Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("Obat", Global.System.Data.OleDb.OleDbType.VarWChar, 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "Obat", Global.System.Data.DataRowVersion.Current, false, Nothing))
             Me._adapter.UpdateCommand = New Global.System.Data.OleDb.OleDbCommand()
             Me._adapter.UpdateCommand.Connection = Me.Connection
-            Me._adapter.UpdateCommand.CommandText = "UPDATE `Gejala` SET `Kode` = ?, `Pertanyaan` = ?, `Ya` = ?, `Tidak` = ?, `Obat` ="& _ 
-                " ? WHERE ((`Kode` = ?) AND ((? = 1 AND `Pertanyaan` IS NULL) OR (`Pertanyaan` = "& _ 
-                "?)) AND ((? = 1 AND `Ya` IS NULL) OR (`Ya` = ?)) AND ((? = 1 AND `Tidak` IS NULL"& _ 
-                ") OR (`Tidak` = ?)) AND ((? = 1 AND `Obat` IS NULL) OR (`Obat` = ?)))"
+            Me._adapter.UpdateCommand.CommandText = "UPDATE `Gejala` SET `Pertanyaan` = ?, `Ya` = ?, `Tidak` = ?, `Obat` = ? WHERE ((`"& _ 
+                "Kode` = ?) AND ((? = 1 AND `Pertanyaan` IS NULL) OR (`Pertanyaan` = ?)) AND ((? "& _ 
+                "= 1 AND `Ya` IS NULL) OR (`Ya` = ?)) AND ((? = 1 AND `Tidak` IS NULL) OR (`Tidak"& _ 
+                "` = ?)) AND ((? = 1 AND `Obat` IS NULL) OR (`Obat` = ?)))"
             Me._adapter.UpdateCommand.CommandType = Global.System.Data.CommandType.Text
-            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("Kode", Global.System.Data.OleDb.OleDbType.VarWChar, 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "Kode", Global.System.Data.DataRowVersion.Current, false, Nothing))
             Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("Pertanyaan", Global.System.Data.OleDb.OleDbType.VarWChar, 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "Pertanyaan", Global.System.Data.DataRowVersion.Current, false, Nothing))
             Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("Ya", Global.System.Data.OleDb.OleDbType.VarWChar, 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "Ya", Global.System.Data.DataRowVersion.Current, false, Nothing))
             Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("Tidak", Global.System.Data.OleDb.OleDbType.VarWChar, 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "Tidak", Global.System.Data.DataRowVersion.Current, false, Nothing))
             Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("Obat", Global.System.Data.OleDb.OleDbType.VarWChar, 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "Obat", Global.System.Data.DataRowVersion.Current, false, Nothing))
-            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("Original_Kode", Global.System.Data.OleDb.OleDbType.VarWChar, 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "Kode", Global.System.Data.DataRowVersion.Original, false, Nothing))
+            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("Original_Kode", Global.System.Data.OleDb.OleDbType.[Integer], 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "Kode", Global.System.Data.DataRowVersion.Original, false, Nothing))
             Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("IsNull_Pertanyaan", Global.System.Data.OleDb.OleDbType.[Integer], 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "Pertanyaan", Global.System.Data.DataRowVersion.Original, true, Nothing))
             Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("Original_Pertanyaan", Global.System.Data.OleDb.OleDbType.VarWChar, 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "Pertanyaan", Global.System.Data.DataRowVersion.Original, false, Nothing))
             Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("IsNull_Ya", Global.System.Data.OleDb.OleDbType.[Integer], 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "Ya", Global.System.Data.DataRowVersion.Original, true, Nothing))
@@ -2404,12 +2434,8 @@ Namespace DBSistemPakarDataSetTableAdapters
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0"),  _
          Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter"),  _
          Global.System.ComponentModel.DataObjectMethodAttribute(Global.System.ComponentModel.DataObjectMethodType.Delete, true)>  _
-        Public Overloads Overridable Function Delete(ByVal Original_Kode As String, ByVal Original_Pertanyaan As String, ByVal Original_Ya As String, ByVal Original_Tidak As String, ByVal Original_Obat As String) As Integer
-            If (Original_Kode Is Nothing) Then
-                Throw New Global.System.ArgumentNullException("Original_Kode")
-            Else
-                Me.Adapter.DeleteCommand.Parameters(0).Value = CType(Original_Kode,String)
-            End If
+        Public Overloads Overridable Function Delete(ByVal Original_Kode As Integer, ByVal Original_Pertanyaan As String, ByVal Original_Ya As String, ByVal Original_Tidak As String, ByVal Original_Obat As String) As Integer
+            Me.Adapter.DeleteCommand.Parameters(0).Value = CType(Original_Kode,Integer)
             If (Original_Pertanyaan Is Nothing) Then
                 Me.Adapter.DeleteCommand.Parameters(1).Value = CType(1,Object)
                 Me.Adapter.DeleteCommand.Parameters(2).Value = Global.System.DBNull.Value
@@ -2457,31 +2483,26 @@ Namespace DBSistemPakarDataSetTableAdapters
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0"),  _
          Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter"),  _
          Global.System.ComponentModel.DataObjectMethodAttribute(Global.System.ComponentModel.DataObjectMethodType.Insert, true)>  _
-        Public Overloads Overridable Function Insert(ByVal Kode As String, ByVal Pertanyaan As String, ByVal Ya As String, ByVal Tidak As String, ByVal Obat As String) As Integer
-            If (Kode Is Nothing) Then
-                Throw New Global.System.ArgumentNullException("Kode")
-            Else
-                Me.Adapter.InsertCommand.Parameters(0).Value = CType(Kode,String)
-            End If
+        Public Overloads Overridable Function Insert(ByVal Pertanyaan As String, ByVal Ya As String, ByVal Tidak As String, ByVal Obat As String) As Integer
             If (Pertanyaan Is Nothing) Then
-                Me.Adapter.InsertCommand.Parameters(1).Value = Global.System.DBNull.Value
+                Me.Adapter.InsertCommand.Parameters(0).Value = Global.System.DBNull.Value
             Else
-                Me.Adapter.InsertCommand.Parameters(1).Value = CType(Pertanyaan,String)
+                Me.Adapter.InsertCommand.Parameters(0).Value = CType(Pertanyaan,String)
             End If
             If (Ya Is Nothing) Then
-                Me.Adapter.InsertCommand.Parameters(2).Value = Global.System.DBNull.Value
+                Me.Adapter.InsertCommand.Parameters(1).Value = Global.System.DBNull.Value
             Else
-                Me.Adapter.InsertCommand.Parameters(2).Value = CType(Ya,String)
+                Me.Adapter.InsertCommand.Parameters(1).Value = CType(Ya,String)
             End If
             If (Tidak Is Nothing) Then
-                Me.Adapter.InsertCommand.Parameters(3).Value = Global.System.DBNull.Value
+                Me.Adapter.InsertCommand.Parameters(2).Value = Global.System.DBNull.Value
             Else
-                Me.Adapter.InsertCommand.Parameters(3).Value = CType(Tidak,String)
+                Me.Adapter.InsertCommand.Parameters(2).Value = CType(Tidak,String)
             End If
             If (Obat Is Nothing) Then
-                Me.Adapter.InsertCommand.Parameters(4).Value = Global.System.DBNull.Value
+                Me.Adapter.InsertCommand.Parameters(3).Value = Global.System.DBNull.Value
             Else
-                Me.Adapter.InsertCommand.Parameters(4).Value = CType(Obat,String)
+                Me.Adapter.InsertCommand.Parameters(3).Value = CType(Obat,String)
             End If
             Dim previousConnectionState As Global.System.Data.ConnectionState = Me.Adapter.InsertCommand.Connection.State
             If ((Me.Adapter.InsertCommand.Connection.State And Global.System.Data.ConnectionState.Open)  _
@@ -2502,64 +2523,55 @@ Namespace DBSistemPakarDataSetTableAdapters
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0"),  _
          Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter"),  _
          Global.System.ComponentModel.DataObjectMethodAttribute(Global.System.ComponentModel.DataObjectMethodType.Update, true)>  _
-        Public Overloads Overridable Function Update(ByVal Kode As String, ByVal Pertanyaan As String, ByVal Ya As String, ByVal Tidak As String, ByVal Obat As String, ByVal Original_Kode As String, ByVal Original_Pertanyaan As String, ByVal Original_Ya As String, ByVal Original_Tidak As String, ByVal Original_Obat As String) As Integer
-            If (Kode Is Nothing) Then
-                Throw New Global.System.ArgumentNullException("Kode")
-            Else
-                Me.Adapter.UpdateCommand.Parameters(0).Value = CType(Kode,String)
-            End If
+        Public Overloads Overridable Function Update(ByVal Pertanyaan As String, ByVal Ya As String, ByVal Tidak As String, ByVal Obat As String, ByVal Original_Kode As Integer, ByVal Original_Pertanyaan As String, ByVal Original_Ya As String, ByVal Original_Tidak As String, ByVal Original_Obat As String) As Integer
             If (Pertanyaan Is Nothing) Then
-                Me.Adapter.UpdateCommand.Parameters(1).Value = Global.System.DBNull.Value
+                Me.Adapter.UpdateCommand.Parameters(0).Value = Global.System.DBNull.Value
             Else
-                Me.Adapter.UpdateCommand.Parameters(1).Value = CType(Pertanyaan,String)
+                Me.Adapter.UpdateCommand.Parameters(0).Value = CType(Pertanyaan,String)
             End If
             If (Ya Is Nothing) Then
-                Me.Adapter.UpdateCommand.Parameters(2).Value = Global.System.DBNull.Value
+                Me.Adapter.UpdateCommand.Parameters(1).Value = Global.System.DBNull.Value
             Else
-                Me.Adapter.UpdateCommand.Parameters(2).Value = CType(Ya,String)
+                Me.Adapter.UpdateCommand.Parameters(1).Value = CType(Ya,String)
             End If
             If (Tidak Is Nothing) Then
-                Me.Adapter.UpdateCommand.Parameters(3).Value = Global.System.DBNull.Value
+                Me.Adapter.UpdateCommand.Parameters(2).Value = Global.System.DBNull.Value
             Else
-                Me.Adapter.UpdateCommand.Parameters(3).Value = CType(Tidak,String)
+                Me.Adapter.UpdateCommand.Parameters(2).Value = CType(Tidak,String)
             End If
             If (Obat Is Nothing) Then
-                Me.Adapter.UpdateCommand.Parameters(4).Value = Global.System.DBNull.Value
+                Me.Adapter.UpdateCommand.Parameters(3).Value = Global.System.DBNull.Value
             Else
-                Me.Adapter.UpdateCommand.Parameters(4).Value = CType(Obat,String)
+                Me.Adapter.UpdateCommand.Parameters(3).Value = CType(Obat,String)
             End If
-            If (Original_Kode Is Nothing) Then
-                Throw New Global.System.ArgumentNullException("Original_Kode")
-            Else
-                Me.Adapter.UpdateCommand.Parameters(5).Value = CType(Original_Kode,String)
-            End If
+            Me.Adapter.UpdateCommand.Parameters(4).Value = CType(Original_Kode,Integer)
             If (Original_Pertanyaan Is Nothing) Then
-                Me.Adapter.UpdateCommand.Parameters(6).Value = CType(1,Object)
-                Me.Adapter.UpdateCommand.Parameters(7).Value = Global.System.DBNull.Value
+                Me.Adapter.UpdateCommand.Parameters(5).Value = CType(1,Object)
+                Me.Adapter.UpdateCommand.Parameters(6).Value = Global.System.DBNull.Value
             Else
-                Me.Adapter.UpdateCommand.Parameters(6).Value = CType(0,Object)
-                Me.Adapter.UpdateCommand.Parameters(7).Value = CType(Original_Pertanyaan,String)
+                Me.Adapter.UpdateCommand.Parameters(5).Value = CType(0,Object)
+                Me.Adapter.UpdateCommand.Parameters(6).Value = CType(Original_Pertanyaan,String)
             End If
             If (Original_Ya Is Nothing) Then
-                Me.Adapter.UpdateCommand.Parameters(8).Value = CType(1,Object)
-                Me.Adapter.UpdateCommand.Parameters(9).Value = Global.System.DBNull.Value
+                Me.Adapter.UpdateCommand.Parameters(7).Value = CType(1,Object)
+                Me.Adapter.UpdateCommand.Parameters(8).Value = Global.System.DBNull.Value
             Else
-                Me.Adapter.UpdateCommand.Parameters(8).Value = CType(0,Object)
-                Me.Adapter.UpdateCommand.Parameters(9).Value = CType(Original_Ya,String)
+                Me.Adapter.UpdateCommand.Parameters(7).Value = CType(0,Object)
+                Me.Adapter.UpdateCommand.Parameters(8).Value = CType(Original_Ya,String)
             End If
             If (Original_Tidak Is Nothing) Then
-                Me.Adapter.UpdateCommand.Parameters(10).Value = CType(1,Object)
-                Me.Adapter.UpdateCommand.Parameters(11).Value = Global.System.DBNull.Value
+                Me.Adapter.UpdateCommand.Parameters(9).Value = CType(1,Object)
+                Me.Adapter.UpdateCommand.Parameters(10).Value = Global.System.DBNull.Value
             Else
-                Me.Adapter.UpdateCommand.Parameters(10).Value = CType(0,Object)
-                Me.Adapter.UpdateCommand.Parameters(11).Value = CType(Original_Tidak,String)
+                Me.Adapter.UpdateCommand.Parameters(9).Value = CType(0,Object)
+                Me.Adapter.UpdateCommand.Parameters(10).Value = CType(Original_Tidak,String)
             End If
             If (Original_Obat Is Nothing) Then
-                Me.Adapter.UpdateCommand.Parameters(12).Value = CType(1,Object)
-                Me.Adapter.UpdateCommand.Parameters(13).Value = Global.System.DBNull.Value
+                Me.Adapter.UpdateCommand.Parameters(11).Value = CType(1,Object)
+                Me.Adapter.UpdateCommand.Parameters(12).Value = Global.System.DBNull.Value
             Else
-                Me.Adapter.UpdateCommand.Parameters(12).Value = CType(0,Object)
-                Me.Adapter.UpdateCommand.Parameters(13).Value = CType(Original_Obat,String)
+                Me.Adapter.UpdateCommand.Parameters(11).Value = CType(0,Object)
+                Me.Adapter.UpdateCommand.Parameters(12).Value = CType(Original_Obat,String)
             End If
             Dim previousConnectionState As Global.System.Data.ConnectionState = Me.Adapter.UpdateCommand.Connection.State
             If ((Me.Adapter.UpdateCommand.Connection.State And Global.System.Data.ConnectionState.Open)  _
@@ -2575,14 +2587,6 @@ Namespace DBSistemPakarDataSetTableAdapters
                 End If
             End Try
         End Function
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0"),  _
-         Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter"),  _
-         Global.System.ComponentModel.DataObjectMethodAttribute(Global.System.ComponentModel.DataObjectMethodType.Update, true)>  _
-        Public Overloads Overridable Function Update(ByVal Pertanyaan As String, ByVal Ya As String, ByVal Tidak As String, ByVal Obat As String, ByVal Original_Kode As String, ByVal Original_Pertanyaan As String, ByVal Original_Ya As String, ByVal Original_Tidak As String, ByVal Original_Obat As String) As Integer
-            Return Me.Update(Original_Kode, Pertanyaan, Ya, Tidak, Obat, Original_Kode, Original_Pertanyaan, Original_Ya, Original_Tidak, Original_Obat)
-        End Function
     End Class
     
     '''<summary>
@@ -2594,7 +2598,7 @@ Namespace DBSistemPakarDataSetTableAdapters
      Global.System.ComponentModel.DesignerAttribute("Microsoft.VSDesigner.DataSource.Design.TableAdapterDesigner, Microsoft.VSDesigner"& _ 
         ", Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a"),  _
      Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")>  _
-    Partial Public Class Harga_ObatTableAdapter
+    Partial Public Class ObatTableAdapter
         Inherits Global.System.ComponentModel.Component
         
         Private WithEvents _adapter As Global.System.Data.OleDb.OleDbDataAdapter
@@ -2711,18 +2715,38 @@ Namespace DBSistemPakarDataSetTableAdapters
             Me._adapter = New Global.System.Data.OleDb.OleDbDataAdapter()
             Dim tableMapping As Global.System.Data.Common.DataTableMapping = New Global.System.Data.Common.DataTableMapping()
             tableMapping.SourceTable = "Table"
-            tableMapping.DataSetTable = "Harga_Obat"
-            tableMapping.ColumnMappings.Add("Kode_Obat", "Kode_Obat")
-            tableMapping.ColumnMappings.Add("Nama_Obat", "Nama_Obat")
+            tableMapping.DataSetTable = "Obat"
+            tableMapping.ColumnMappings.Add("Kode", "Kode")
+            tableMapping.ColumnMappings.Add("Nama", "Nama")
             tableMapping.ColumnMappings.Add("Harga", "Harga")
+            tableMapping.ColumnMappings.Add("Satuan", "Satuan")
             Me._adapter.TableMappings.Add(tableMapping)
+            Me._adapter.DeleteCommand = New Global.System.Data.OleDb.OleDbCommand()
+            Me._adapter.DeleteCommand.Connection = Me.Connection
+            Me._adapter.DeleteCommand.CommandText = "DELETE FROM `Obat` WHERE ((`Kode` = ?) AND ((? = 1 AND `Harga` IS NULL) OR (`Harg"& _ 
+                "a` = ?)))"
+            Me._adapter.DeleteCommand.CommandType = Global.System.Data.CommandType.Text
+            Me._adapter.DeleteCommand.Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("Original_Kode", Global.System.Data.OleDb.OleDbType.[Integer], 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "Kode", Global.System.Data.DataRowVersion.Original, false, Nothing))
+            Me._adapter.DeleteCommand.Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("IsNull_Harga", Global.System.Data.OleDb.OleDbType.[Integer], 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "Harga", Global.System.Data.DataRowVersion.Original, true, Nothing))
+            Me._adapter.DeleteCommand.Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("Original_Harga", Global.System.Data.OleDb.OleDbType.Currency, 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "Harga", Global.System.Data.DataRowVersion.Original, false, Nothing))
             Me._adapter.InsertCommand = New Global.System.Data.OleDb.OleDbCommand()
             Me._adapter.InsertCommand.Connection = Me.Connection
-            Me._adapter.InsertCommand.CommandText = "INSERT INTO `Harga_Obat` (`Kode_Obat`, `Nama_Obat`, `Harga`) VALUES (?, ?, ?)"
+            Me._adapter.InsertCommand.CommandText = "INSERT INTO `Obat` (`Nama`, `Harga`, `Satuan`) VALUES (?, ?, ?)"
             Me._adapter.InsertCommand.CommandType = Global.System.Data.CommandType.Text
-            Me._adapter.InsertCommand.Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("Kode_Obat", Global.System.Data.OleDb.OleDbType.VarWChar, 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "Kode_Obat", Global.System.Data.DataRowVersion.Current, false, Nothing))
-            Me._adapter.InsertCommand.Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("Nama_Obat", Global.System.Data.OleDb.OleDbType.LongVarWChar, 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "Nama_Obat", Global.System.Data.DataRowVersion.Current, false, Nothing))
+            Me._adapter.InsertCommand.Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("Nama", Global.System.Data.OleDb.OleDbType.LongVarWChar, 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "Nama", Global.System.Data.DataRowVersion.Current, false, Nothing))
             Me._adapter.InsertCommand.Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("Harga", Global.System.Data.OleDb.OleDbType.Currency, 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "Harga", Global.System.Data.DataRowVersion.Current, false, Nothing))
+            Me._adapter.InsertCommand.Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("Satuan", Global.System.Data.OleDb.OleDbType.LongVarWChar, 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "Satuan", Global.System.Data.DataRowVersion.Current, false, Nothing))
+            Me._adapter.UpdateCommand = New Global.System.Data.OleDb.OleDbCommand()
+            Me._adapter.UpdateCommand.Connection = Me.Connection
+            Me._adapter.UpdateCommand.CommandText = "UPDATE `Obat` SET `Nama` = ?, `Harga` = ?, `Satuan` = ? WHERE ((`Kode` = ?) AND ("& _ 
+                "(? = 1 AND `Harga` IS NULL) OR (`Harga` = ?)))"
+            Me._adapter.UpdateCommand.CommandType = Global.System.Data.CommandType.Text
+            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("Nama", Global.System.Data.OleDb.OleDbType.LongVarWChar, 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "Nama", Global.System.Data.DataRowVersion.Current, false, Nothing))
+            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("Harga", Global.System.Data.OleDb.OleDbType.Currency, 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "Harga", Global.System.Data.DataRowVersion.Current, false, Nothing))
+            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("Satuan", Global.System.Data.OleDb.OleDbType.LongVarWChar, 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "Satuan", Global.System.Data.DataRowVersion.Current, false, Nothing))
+            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("Original_Kode", Global.System.Data.OleDb.OleDbType.[Integer], 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "Kode", Global.System.Data.DataRowVersion.Original, false, Nothing))
+            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("IsNull_Harga", Global.System.Data.OleDb.OleDbType.[Integer], 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "Harga", Global.System.Data.DataRowVersion.Original, true, Nothing))
+            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("Original_Harga", Global.System.Data.OleDb.OleDbType.Currency, 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "Harga", Global.System.Data.DataRowVersion.Original, false, Nothing))
         End Sub
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
@@ -2738,7 +2762,7 @@ Namespace DBSistemPakarDataSetTableAdapters
             Me._commandCollection = New Global.System.Data.OleDb.OleDbCommand(0) {}
             Me._commandCollection(0) = New Global.System.Data.OleDb.OleDbCommand()
             Me._commandCollection(0).Connection = Me.Connection
-            Me._commandCollection(0).CommandText = "SELECT Kode_Obat, Nama_Obat, Harga FROM Harga_Obat"
+            Me._commandCollection(0).CommandText = "SELECT Kode, Nama, Harga, Satuan FROM Obat"
             Me._commandCollection(0).CommandType = Global.System.Data.CommandType.Text
         End Sub
         
@@ -2746,7 +2770,7 @@ Namespace DBSistemPakarDataSetTableAdapters
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0"),  _
          Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter"),  _
          Global.System.ComponentModel.DataObjectMethodAttribute(Global.System.ComponentModel.DataObjectMethodType.Fill, true)>  _
-        Public Overloads Overridable Function Fill(ByVal dataTable As DBSistemPakarDataSet.Harga_ObatDataTable) As Integer
+        Public Overloads Overridable Function Fill(ByVal dataTable As DBSistemPakarDataSet.ObatDataTable) As Integer
             Me.Adapter.SelectCommand = Me.CommandCollection(0)
             If (Me.ClearBeforeFill = true) Then
                 dataTable.Clear
@@ -2759,9 +2783,9 @@ Namespace DBSistemPakarDataSetTableAdapters
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0"),  _
          Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter"),  _
          Global.System.ComponentModel.DataObjectMethodAttribute(Global.System.ComponentModel.DataObjectMethodType.[Select], true)>  _
-        Public Overloads Overridable Function GetData() As DBSistemPakarDataSet.Harga_ObatDataTable
+        Public Overloads Overridable Function GetData() As DBSistemPakarDataSet.ObatDataTable
             Me.Adapter.SelectCommand = Me.CommandCollection(0)
-            Dim dataTable As DBSistemPakarDataSet.Harga_ObatDataTable = New DBSistemPakarDataSet.Harga_ObatDataTable()
+            Dim dataTable As DBSistemPakarDataSet.ObatDataTable = New DBSistemPakarDataSet.ObatDataTable()
             Me.Adapter.Fill(dataTable)
             Return dataTable
         End Function
@@ -2769,7 +2793,7 @@ Namespace DBSistemPakarDataSetTableAdapters
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0"),  _
          Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")>  _
-        Public Overloads Overridable Function Update(ByVal dataTable As DBSistemPakarDataSet.Harga_ObatDataTable) As Integer
+        Public Overloads Overridable Function Update(ByVal dataTable As DBSistemPakarDataSet.ObatDataTable) As Integer
             Return Me.Adapter.Update(dataTable)
         End Function
         
@@ -2777,7 +2801,7 @@ Namespace DBSistemPakarDataSetTableAdapters
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0"),  _
          Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")>  _
         Public Overloads Overridable Function Update(ByVal dataSet As DBSistemPakarDataSet) As Integer
-            Return Me.Adapter.Update(dataSet, "Harga_Obat")
+            Return Me.Adapter.Update(dataSet, "Obat")
         End Function
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
@@ -2797,22 +2821,50 @@ Namespace DBSistemPakarDataSetTableAdapters
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0"),  _
          Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter"),  _
+         Global.System.ComponentModel.DataObjectMethodAttribute(Global.System.ComponentModel.DataObjectMethodType.Delete, true)>  _
+        Public Overloads Overridable Function Delete(ByVal Original_Kode As Integer, ByVal Original_Harga As Global.System.Nullable(Of Decimal)) As Integer
+            Me.Adapter.DeleteCommand.Parameters(0).Value = CType(Original_Kode,Integer)
+            If (Original_Harga.HasValue = true) Then
+                Me.Adapter.DeleteCommand.Parameters(1).Value = CType(0,Object)
+                Me.Adapter.DeleteCommand.Parameters(2).Value = CType(Original_Harga.Value,Decimal)
+            Else
+                Me.Adapter.DeleteCommand.Parameters(1).Value = CType(1,Object)
+                Me.Adapter.DeleteCommand.Parameters(2).Value = Global.System.DBNull.Value
+            End If
+            Dim previousConnectionState As Global.System.Data.ConnectionState = Me.Adapter.DeleteCommand.Connection.State
+            If ((Me.Adapter.DeleteCommand.Connection.State And Global.System.Data.ConnectionState.Open)  _
+                        <> Global.System.Data.ConnectionState.Open) Then
+                Me.Adapter.DeleteCommand.Connection.Open
+            End If
+            Try 
+                Dim returnValue As Integer = Me.Adapter.DeleteCommand.ExecuteNonQuery
+                Return returnValue
+            Finally
+                If (previousConnectionState = Global.System.Data.ConnectionState.Closed) Then
+                    Me.Adapter.DeleteCommand.Connection.Close
+                End If
+            End Try
+        End Function
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0"),  _
+         Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter"),  _
          Global.System.ComponentModel.DataObjectMethodAttribute(Global.System.ComponentModel.DataObjectMethodType.Insert, true)>  _
-        Public Overloads Overridable Function Insert(ByVal Kode_Obat As String, ByVal Nama_Obat As String, ByVal Harga As Global.System.Nullable(Of Decimal)) As Integer
-            If (Kode_Obat Is Nothing) Then
+        Public Overloads Overridable Function Insert(ByVal Nama As String, ByVal Harga As Global.System.Nullable(Of Decimal), ByVal Satuan As String) As Integer
+            If (Nama Is Nothing) Then
                 Me.Adapter.InsertCommand.Parameters(0).Value = Global.System.DBNull.Value
             Else
-                Me.Adapter.InsertCommand.Parameters(0).Value = CType(Kode_Obat,String)
-            End If
-            If (Nama_Obat Is Nothing) Then
-                Me.Adapter.InsertCommand.Parameters(1).Value = Global.System.DBNull.Value
-            Else
-                Me.Adapter.InsertCommand.Parameters(1).Value = CType(Nama_Obat,String)
+                Me.Adapter.InsertCommand.Parameters(0).Value = CType(Nama,String)
             End If
             If (Harga.HasValue = true) Then
-                Me.Adapter.InsertCommand.Parameters(2).Value = CType(Harga.Value,Decimal)
+                Me.Adapter.InsertCommand.Parameters(1).Value = CType(Harga.Value,Decimal)
             Else
+                Me.Adapter.InsertCommand.Parameters(1).Value = Global.System.DBNull.Value
+            End If
+            If (Satuan Is Nothing) Then
                 Me.Adapter.InsertCommand.Parameters(2).Value = Global.System.DBNull.Value
+            Else
+                Me.Adapter.InsertCommand.Parameters(2).Value = CType(Satuan,String)
             End If
             Dim previousConnectionState As Global.System.Data.ConnectionState = Me.Adapter.InsertCommand.Connection.State
             If ((Me.Adapter.InsertCommand.Connection.State And Global.System.Data.ConnectionState.Open)  _
@@ -2825,6 +2877,49 @@ Namespace DBSistemPakarDataSetTableAdapters
             Finally
                 If (previousConnectionState = Global.System.Data.ConnectionState.Closed) Then
                     Me.Adapter.InsertCommand.Connection.Close
+                End If
+            End Try
+        End Function
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0"),  _
+         Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter"),  _
+         Global.System.ComponentModel.DataObjectMethodAttribute(Global.System.ComponentModel.DataObjectMethodType.Update, true)>  _
+        Public Overloads Overridable Function Update(ByVal Nama As String, ByVal Harga As Global.System.Nullable(Of Decimal), ByVal Satuan As String, ByVal Original_Kode As Integer, ByVal Original_Harga As Global.System.Nullable(Of Decimal)) As Integer
+            If (Nama Is Nothing) Then
+                Me.Adapter.UpdateCommand.Parameters(0).Value = Global.System.DBNull.Value
+            Else
+                Me.Adapter.UpdateCommand.Parameters(0).Value = CType(Nama,String)
+            End If
+            If (Harga.HasValue = true) Then
+                Me.Adapter.UpdateCommand.Parameters(1).Value = CType(Harga.Value,Decimal)
+            Else
+                Me.Adapter.UpdateCommand.Parameters(1).Value = Global.System.DBNull.Value
+            End If
+            If (Satuan Is Nothing) Then
+                Me.Adapter.UpdateCommand.Parameters(2).Value = Global.System.DBNull.Value
+            Else
+                Me.Adapter.UpdateCommand.Parameters(2).Value = CType(Satuan,String)
+            End If
+            Me.Adapter.UpdateCommand.Parameters(3).Value = CType(Original_Kode,Integer)
+            If (Original_Harga.HasValue = true) Then
+                Me.Adapter.UpdateCommand.Parameters(4).Value = CType(0,Object)
+                Me.Adapter.UpdateCommand.Parameters(5).Value = CType(Original_Harga.Value,Decimal)
+            Else
+                Me.Adapter.UpdateCommand.Parameters(4).Value = CType(1,Object)
+                Me.Adapter.UpdateCommand.Parameters(5).Value = Global.System.DBNull.Value
+            End If
+            Dim previousConnectionState As Global.System.Data.ConnectionState = Me.Adapter.UpdateCommand.Connection.State
+            If ((Me.Adapter.UpdateCommand.Connection.State And Global.System.Data.ConnectionState.Open)  _
+                        <> Global.System.Data.ConnectionState.Open) Then
+                Me.Adapter.UpdateCommand.Connection.Open
+            End If
+            Try 
+                Dim returnValue As Integer = Me.Adapter.UpdateCommand.ExecuteNonQuery
+                Return returnValue
+            Finally
+                If (previousConnectionState = Global.System.Data.ConnectionState.Closed) Then
+                    Me.Adapter.UpdateCommand.Connection.Close
                 End If
             End Try
         End Function
@@ -2958,19 +3053,33 @@ Namespace DBSistemPakarDataSetTableAdapters
             tableMapping.SourceTable = "Table"
             tableMapping.DataSetTable = "Solusi"
             tableMapping.ColumnMappings.Add("Kode", "Kode")
-            tableMapping.ColumnMappings.Add("Jenis_Penyakit", "Jenis_Penyakit")
+            tableMapping.ColumnMappings.Add("JenisPenyakit", "JenisPenyakit")
             tableMapping.ColumnMappings.Add("Solusi", "Solusi")
-            tableMapping.ColumnMappings.Add("Obat Alami", "Obat Alami")
             Me._adapter.TableMappings.Add(tableMapping)
+            Me._adapter.DeleteCommand = New Global.System.Data.OleDb.OleDbCommand()
+            Me._adapter.DeleteCommand.Connection = Me.Connection
+            Me._adapter.DeleteCommand.CommandText = "DELETE FROM `Solusi` WHERE ((`Kode` = ?) AND ((? = 1 AND `JenisPenyakit` IS NULL)"& _ 
+                " OR (`JenisPenyakit` = ?)))"
+            Me._adapter.DeleteCommand.CommandType = Global.System.Data.CommandType.Text
+            Me._adapter.DeleteCommand.Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("Original_Kode", Global.System.Data.OleDb.OleDbType.[Integer], 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "Kode", Global.System.Data.DataRowVersion.Original, false, Nothing))
+            Me._adapter.DeleteCommand.Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("IsNull_JenisPenyakit", Global.System.Data.OleDb.OleDbType.[Integer], 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "JenisPenyakit", Global.System.Data.DataRowVersion.Original, true, Nothing))
+            Me._adapter.DeleteCommand.Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("Original_JenisPenyakit", Global.System.Data.OleDb.OleDbType.VarWChar, 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "JenisPenyakit", Global.System.Data.DataRowVersion.Original, false, Nothing))
             Me._adapter.InsertCommand = New Global.System.Data.OleDb.OleDbCommand()
             Me._adapter.InsertCommand.Connection = Me.Connection
-            Me._adapter.InsertCommand.CommandText = "INSERT INTO `Solusi` (`Kode`, `Jenis_Penyakit`, `Solusi`, `Obat Alami`) VALUES (?"& _ 
-                ", ?, ?, ?)"
+            Me._adapter.InsertCommand.CommandText = "INSERT INTO `Solusi` (`JenisPenyakit`, `Solusi`) VALUES (?, ?)"
             Me._adapter.InsertCommand.CommandType = Global.System.Data.CommandType.Text
-            Me._adapter.InsertCommand.Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("Kode", Global.System.Data.OleDb.OleDbType.LongVarWChar, 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "Kode", Global.System.Data.DataRowVersion.Current, false, Nothing))
-            Me._adapter.InsertCommand.Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("Jenis_Penyakit", Global.System.Data.OleDb.OleDbType.LongVarWChar, 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "Jenis_Penyakit", Global.System.Data.DataRowVersion.Current, false, Nothing))
+            Me._adapter.InsertCommand.Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("JenisPenyakit", Global.System.Data.OleDb.OleDbType.VarWChar, 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "JenisPenyakit", Global.System.Data.DataRowVersion.Current, false, Nothing))
             Me._adapter.InsertCommand.Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("Solusi", Global.System.Data.OleDb.OleDbType.LongVarWChar, 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "Solusi", Global.System.Data.DataRowVersion.Current, false, Nothing))
-            Me._adapter.InsertCommand.Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("Obat_Alami", Global.System.Data.OleDb.OleDbType.LongVarWChar, 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "Obat Alami", Global.System.Data.DataRowVersion.Current, false, Nothing))
+            Me._adapter.UpdateCommand = New Global.System.Data.OleDb.OleDbCommand()
+            Me._adapter.UpdateCommand.Connection = Me.Connection
+            Me._adapter.UpdateCommand.CommandText = "UPDATE `Solusi` SET `JenisPenyakit` = ?, `Solusi` = ? WHERE ((`Kode` = ?) AND ((?"& _ 
+                " = 1 AND `JenisPenyakit` IS NULL) OR (`JenisPenyakit` = ?)))"
+            Me._adapter.UpdateCommand.CommandType = Global.System.Data.CommandType.Text
+            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("JenisPenyakit", Global.System.Data.OleDb.OleDbType.VarWChar, 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "JenisPenyakit", Global.System.Data.DataRowVersion.Current, false, Nothing))
+            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("Solusi", Global.System.Data.OleDb.OleDbType.LongVarWChar, 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "Solusi", Global.System.Data.DataRowVersion.Current, false, Nothing))
+            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("Original_Kode", Global.System.Data.OleDb.OleDbType.[Integer], 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "Kode", Global.System.Data.DataRowVersion.Original, false, Nothing))
+            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("IsNull_JenisPenyakit", Global.System.Data.OleDb.OleDbType.[Integer], 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "JenisPenyakit", Global.System.Data.DataRowVersion.Original, true, Nothing))
+            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("Original_JenisPenyakit", Global.System.Data.OleDb.OleDbType.VarWChar, 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "JenisPenyakit", Global.System.Data.DataRowVersion.Original, false, Nothing))
         End Sub
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
@@ -2986,7 +3095,7 @@ Namespace DBSistemPakarDataSetTableAdapters
             Me._commandCollection = New Global.System.Data.OleDb.OleDbCommand(0) {}
             Me._commandCollection(0) = New Global.System.Data.OleDb.OleDbCommand()
             Me._commandCollection(0).Connection = Me.Connection
-            Me._commandCollection(0).CommandText = "SELECT Kode, Jenis_Penyakit, Solusi, [Obat Alami] FROM Solusi"
+            Me._commandCollection(0).CommandText = "SELECT Kode, JenisPenyakit, Solusi FROM Solusi"
             Me._commandCollection(0).CommandType = Global.System.Data.CommandType.Text
         End Sub
         
@@ -3045,27 +3154,45 @@ Namespace DBSistemPakarDataSetTableAdapters
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0"),  _
          Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter"),  _
+         Global.System.ComponentModel.DataObjectMethodAttribute(Global.System.ComponentModel.DataObjectMethodType.Delete, true)>  _
+        Public Overloads Overridable Function Delete(ByVal Original_Kode As Integer, ByVal Original_JenisPenyakit As String) As Integer
+            Me.Adapter.DeleteCommand.Parameters(0).Value = CType(Original_Kode,Integer)
+            If (Original_JenisPenyakit Is Nothing) Then
+                Me.Adapter.DeleteCommand.Parameters(1).Value = CType(1,Object)
+                Me.Adapter.DeleteCommand.Parameters(2).Value = Global.System.DBNull.Value
+            Else
+                Me.Adapter.DeleteCommand.Parameters(1).Value = CType(0,Object)
+                Me.Adapter.DeleteCommand.Parameters(2).Value = CType(Original_JenisPenyakit,String)
+            End If
+            Dim previousConnectionState As Global.System.Data.ConnectionState = Me.Adapter.DeleteCommand.Connection.State
+            If ((Me.Adapter.DeleteCommand.Connection.State And Global.System.Data.ConnectionState.Open)  _
+                        <> Global.System.Data.ConnectionState.Open) Then
+                Me.Adapter.DeleteCommand.Connection.Open
+            End If
+            Try 
+                Dim returnValue As Integer = Me.Adapter.DeleteCommand.ExecuteNonQuery
+                Return returnValue
+            Finally
+                If (previousConnectionState = Global.System.Data.ConnectionState.Closed) Then
+                    Me.Adapter.DeleteCommand.Connection.Close
+                End If
+            End Try
+        End Function
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0"),  _
+         Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter"),  _
          Global.System.ComponentModel.DataObjectMethodAttribute(Global.System.ComponentModel.DataObjectMethodType.Insert, true)>  _
-        Public Overloads Overridable Function Insert(ByVal Kode As String, ByVal Jenis_Penyakit As String, ByVal Solusi As String, ByVal Obat_Alami As String) As Integer
-            If (Kode Is Nothing) Then
+        Public Overloads Overridable Function Insert(ByVal JenisPenyakit As String, ByVal Solusi As String) As Integer
+            If (JenisPenyakit Is Nothing) Then
                 Me.Adapter.InsertCommand.Parameters(0).Value = Global.System.DBNull.Value
             Else
-                Me.Adapter.InsertCommand.Parameters(0).Value = CType(Kode,String)
-            End If
-            If (Jenis_Penyakit Is Nothing) Then
-                Me.Adapter.InsertCommand.Parameters(1).Value = Global.System.DBNull.Value
-            Else
-                Me.Adapter.InsertCommand.Parameters(1).Value = CType(Jenis_Penyakit,String)
+                Me.Adapter.InsertCommand.Parameters(0).Value = CType(JenisPenyakit,String)
             End If
             If (Solusi Is Nothing) Then
-                Me.Adapter.InsertCommand.Parameters(2).Value = Global.System.DBNull.Value
+                Me.Adapter.InsertCommand.Parameters(1).Value = Global.System.DBNull.Value
             Else
-                Me.Adapter.InsertCommand.Parameters(2).Value = CType(Solusi,String)
-            End If
-            If (Obat_Alami Is Nothing) Then
-                Me.Adapter.InsertCommand.Parameters(3).Value = Global.System.DBNull.Value
-            Else
-                Me.Adapter.InsertCommand.Parameters(3).Value = CType(Obat_Alami,String)
+                Me.Adapter.InsertCommand.Parameters(1).Value = CType(Solusi,String)
             End If
             Dim previousConnectionState As Global.System.Data.ConnectionState = Me.Adapter.InsertCommand.Connection.State
             If ((Me.Adapter.InsertCommand.Connection.State And Global.System.Data.ConnectionState.Open)  _
@@ -3078,6 +3205,44 @@ Namespace DBSistemPakarDataSetTableAdapters
             Finally
                 If (previousConnectionState = Global.System.Data.ConnectionState.Closed) Then
                     Me.Adapter.InsertCommand.Connection.Close
+                End If
+            End Try
+        End Function
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0"),  _
+         Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter"),  _
+         Global.System.ComponentModel.DataObjectMethodAttribute(Global.System.ComponentModel.DataObjectMethodType.Update, true)>  _
+        Public Overloads Overridable Function Update(ByVal JenisPenyakit As String, ByVal Solusi As String, ByVal Original_Kode As Integer, ByVal Original_JenisPenyakit As String) As Integer
+            If (JenisPenyakit Is Nothing) Then
+                Me.Adapter.UpdateCommand.Parameters(0).Value = Global.System.DBNull.Value
+            Else
+                Me.Adapter.UpdateCommand.Parameters(0).Value = CType(JenisPenyakit,String)
+            End If
+            If (Solusi Is Nothing) Then
+                Me.Adapter.UpdateCommand.Parameters(1).Value = Global.System.DBNull.Value
+            Else
+                Me.Adapter.UpdateCommand.Parameters(1).Value = CType(Solusi,String)
+            End If
+            Me.Adapter.UpdateCommand.Parameters(2).Value = CType(Original_Kode,Integer)
+            If (Original_JenisPenyakit Is Nothing) Then
+                Me.Adapter.UpdateCommand.Parameters(3).Value = CType(1,Object)
+                Me.Adapter.UpdateCommand.Parameters(4).Value = Global.System.DBNull.Value
+            Else
+                Me.Adapter.UpdateCommand.Parameters(3).Value = CType(0,Object)
+                Me.Adapter.UpdateCommand.Parameters(4).Value = CType(Original_JenisPenyakit,String)
+            End If
+            Dim previousConnectionState As Global.System.Data.ConnectionState = Me.Adapter.UpdateCommand.Connection.State
+            If ((Me.Adapter.UpdateCommand.Connection.State And Global.System.Data.ConnectionState.Open)  _
+                        <> Global.System.Data.ConnectionState.Open) Then
+                Me.Adapter.UpdateCommand.Connection.Open
+            End If
+            Try 
+                Dim returnValue As Integer = Me.Adapter.UpdateCommand.ExecuteNonQuery
+                Return returnValue
+            Finally
+                If (previousConnectionState = Global.System.Data.ConnectionState.Closed) Then
+                    Me.Adapter.UpdateCommand.Connection.Close
                 End If
             End Try
         End Function
@@ -3213,36 +3378,45 @@ Namespace DBSistemPakarDataSetTableAdapters
             tableMapping.ColumnMappings.Add("ID", "ID")
             tableMapping.ColumnMappings.Add("Username", "Username")
             tableMapping.ColumnMappings.Add("Password", "Password")
+            tableMapping.ColumnMappings.Add("Type", "Type")
             Me._adapter.TableMappings.Add(tableMapping)
             Me._adapter.DeleteCommand = New Global.System.Data.OleDb.OleDbCommand()
             Me._adapter.DeleteCommand.Connection = Me.Connection
             Me._adapter.DeleteCommand.CommandText = "DELETE FROM `User` WHERE ((`ID` = ?) AND ((? = 1 AND `Username` IS NULL) OR (`Use"& _ 
-                "rname` = ?)) AND ((? = 1 AND `Password` IS NULL) OR (`Password` = ?)))"
+                "rname` = ?)) AND ((? = 1 AND `Password` IS NULL) OR (`Password` = ?)) AND ((? = "& _ 
+                "1 AND `Type` IS NULL) OR (`Type` = ?)))"
             Me._adapter.DeleteCommand.CommandType = Global.System.Data.CommandType.Text
             Me._adapter.DeleteCommand.Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("Original_ID", Global.System.Data.OleDb.OleDbType.[Integer], 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "ID", Global.System.Data.DataRowVersion.Original, false, Nothing))
             Me._adapter.DeleteCommand.Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("IsNull_Username", Global.System.Data.OleDb.OleDbType.[Integer], 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "Username", Global.System.Data.DataRowVersion.Original, true, Nothing))
             Me._adapter.DeleteCommand.Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("Original_Username", Global.System.Data.OleDb.OleDbType.VarWChar, 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "Username", Global.System.Data.DataRowVersion.Original, false, Nothing))
             Me._adapter.DeleteCommand.Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("IsNull_Password", Global.System.Data.OleDb.OleDbType.[Integer], 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "Password", Global.System.Data.DataRowVersion.Original, true, Nothing))
             Me._adapter.DeleteCommand.Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("Original_Password", Global.System.Data.OleDb.OleDbType.VarWChar, 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "Password", Global.System.Data.DataRowVersion.Original, false, Nothing))
+            Me._adapter.DeleteCommand.Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("IsNull_Type", Global.System.Data.OleDb.OleDbType.[Integer], 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "Type", Global.System.Data.DataRowVersion.Original, true, Nothing))
+            Me._adapter.DeleteCommand.Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("Original_Type", Global.System.Data.OleDb.OleDbType.VarWChar, 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "Type", Global.System.Data.DataRowVersion.Original, false, Nothing))
             Me._adapter.InsertCommand = New Global.System.Data.OleDb.OleDbCommand()
             Me._adapter.InsertCommand.Connection = Me.Connection
-            Me._adapter.InsertCommand.CommandText = "INSERT INTO `User` (`Username`, `Password`) VALUES (?, ?)"
+            Me._adapter.InsertCommand.CommandText = "INSERT INTO `User` (`Username`, `Password`, `Type`) VALUES (?, ?, ?)"
             Me._adapter.InsertCommand.CommandType = Global.System.Data.CommandType.Text
             Me._adapter.InsertCommand.Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("Username", Global.System.Data.OleDb.OleDbType.VarWChar, 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "Username", Global.System.Data.DataRowVersion.Current, false, Nothing))
             Me._adapter.InsertCommand.Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("Password", Global.System.Data.OleDb.OleDbType.VarWChar, 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "Password", Global.System.Data.DataRowVersion.Current, false, Nothing))
+            Me._adapter.InsertCommand.Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("Type", Global.System.Data.OleDb.OleDbType.VarWChar, 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "Type", Global.System.Data.DataRowVersion.Current, false, Nothing))
             Me._adapter.UpdateCommand = New Global.System.Data.OleDb.OleDbCommand()
             Me._adapter.UpdateCommand.Connection = Me.Connection
-            Me._adapter.UpdateCommand.CommandText = "UPDATE `User` SET `Username` = ?, `Password` = ? WHERE ((`ID` = ?) AND ((? = 1 AN"& _ 
-                "D `Username` IS NULL) OR (`Username` = ?)) AND ((? = 1 AND `Password` IS NULL) O"& _ 
-                "R (`Password` = ?)))"
+            Me._adapter.UpdateCommand.CommandText = "UPDATE `User` SET `Username` = ?, `Password` = ?, `Type` = ? WHERE ((`ID` = ?) AN"& _ 
+                "D ((? = 1 AND `Username` IS NULL) OR (`Username` = ?)) AND ((? = 1 AND `Password"& _ 
+                "` IS NULL) OR (`Password` = ?)) AND ((? = 1 AND `Type` IS NULL) OR (`Type` = ?))"& _ 
+                ")"
             Me._adapter.UpdateCommand.CommandType = Global.System.Data.CommandType.Text
             Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("Username", Global.System.Data.OleDb.OleDbType.VarWChar, 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "Username", Global.System.Data.DataRowVersion.Current, false, Nothing))
             Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("Password", Global.System.Data.OleDb.OleDbType.VarWChar, 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "Password", Global.System.Data.DataRowVersion.Current, false, Nothing))
+            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("Type", Global.System.Data.OleDb.OleDbType.VarWChar, 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "Type", Global.System.Data.DataRowVersion.Current, false, Nothing))
             Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("Original_ID", Global.System.Data.OleDb.OleDbType.[Integer], 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "ID", Global.System.Data.DataRowVersion.Original, false, Nothing))
             Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("IsNull_Username", Global.System.Data.OleDb.OleDbType.[Integer], 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "Username", Global.System.Data.DataRowVersion.Original, true, Nothing))
             Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("Original_Username", Global.System.Data.OleDb.OleDbType.VarWChar, 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "Username", Global.System.Data.DataRowVersion.Original, false, Nothing))
             Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("IsNull_Password", Global.System.Data.OleDb.OleDbType.[Integer], 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "Password", Global.System.Data.DataRowVersion.Original, true, Nothing))
             Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("Original_Password", Global.System.Data.OleDb.OleDbType.VarWChar, 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "Password", Global.System.Data.DataRowVersion.Original, false, Nothing))
+            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("IsNull_Type", Global.System.Data.OleDb.OleDbType.[Integer], 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "Type", Global.System.Data.DataRowVersion.Original, true, Nothing))
+            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("Original_Type", Global.System.Data.OleDb.OleDbType.VarWChar, 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "Type", Global.System.Data.DataRowVersion.Original, false, Nothing))
         End Sub
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
@@ -3258,7 +3432,7 @@ Namespace DBSistemPakarDataSetTableAdapters
             Me._commandCollection = New Global.System.Data.OleDb.OleDbCommand(0) {}
             Me._commandCollection(0) = New Global.System.Data.OleDb.OleDbCommand()
             Me._commandCollection(0).Connection = Me.Connection
-            Me._commandCollection(0).CommandText = "SELECT ID, Username, [Password] FROM [User]"
+            Me._commandCollection(0).CommandText = "SELECT ID, Username, [Password], Type FROM [User]"
             Me._commandCollection(0).CommandType = Global.System.Data.CommandType.Text
         End Sub
         
@@ -3318,7 +3492,7 @@ Namespace DBSistemPakarDataSetTableAdapters
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0"),  _
          Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter"),  _
          Global.System.ComponentModel.DataObjectMethodAttribute(Global.System.ComponentModel.DataObjectMethodType.Delete, true)>  _
-        Public Overloads Overridable Function Delete(ByVal Original_ID As Integer, ByVal Original_Username As String, ByVal Original_Password As String) As Integer
+        Public Overloads Overridable Function Delete(ByVal Original_ID As Integer, ByVal Original_Username As String, ByVal Original_Password As String, ByVal Original_Type As String) As Integer
             Me.Adapter.DeleteCommand.Parameters(0).Value = CType(Original_ID,Integer)
             If (Original_Username Is Nothing) Then
                 Me.Adapter.DeleteCommand.Parameters(1).Value = CType(1,Object)
@@ -3333,6 +3507,13 @@ Namespace DBSistemPakarDataSetTableAdapters
             Else
                 Me.Adapter.DeleteCommand.Parameters(3).Value = CType(0,Object)
                 Me.Adapter.DeleteCommand.Parameters(4).Value = CType(Original_Password,String)
+            End If
+            If (Original_Type Is Nothing) Then
+                Me.Adapter.DeleteCommand.Parameters(5).Value = CType(1,Object)
+                Me.Adapter.DeleteCommand.Parameters(6).Value = Global.System.DBNull.Value
+            Else
+                Me.Adapter.DeleteCommand.Parameters(5).Value = CType(0,Object)
+                Me.Adapter.DeleteCommand.Parameters(6).Value = CType(Original_Type,String)
             End If
             Dim previousConnectionState As Global.System.Data.ConnectionState = Me.Adapter.DeleteCommand.Connection.State
             If ((Me.Adapter.DeleteCommand.Connection.State And Global.System.Data.ConnectionState.Open)  _
@@ -3353,7 +3534,7 @@ Namespace DBSistemPakarDataSetTableAdapters
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0"),  _
          Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter"),  _
          Global.System.ComponentModel.DataObjectMethodAttribute(Global.System.ComponentModel.DataObjectMethodType.Insert, true)>  _
-        Public Overloads Overridable Function Insert(ByVal Username As String, ByVal Password As String) As Integer
+        Public Overloads Overridable Function Insert(ByVal Username As String, ByVal Password As String, ByVal Type As String) As Integer
             If (Username Is Nothing) Then
                 Me.Adapter.InsertCommand.Parameters(0).Value = Global.System.DBNull.Value
             Else
@@ -3363,6 +3544,11 @@ Namespace DBSistemPakarDataSetTableAdapters
                 Me.Adapter.InsertCommand.Parameters(1).Value = Global.System.DBNull.Value
             Else
                 Me.Adapter.InsertCommand.Parameters(1).Value = CType(Password,String)
+            End If
+            If (Type Is Nothing) Then
+                Me.Adapter.InsertCommand.Parameters(2).Value = Global.System.DBNull.Value
+            Else
+                Me.Adapter.InsertCommand.Parameters(2).Value = CType(Type,String)
             End If
             Dim previousConnectionState As Global.System.Data.ConnectionState = Me.Adapter.InsertCommand.Connection.State
             If ((Me.Adapter.InsertCommand.Connection.State And Global.System.Data.ConnectionState.Open)  _
@@ -3383,7 +3569,7 @@ Namespace DBSistemPakarDataSetTableAdapters
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0"),  _
          Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter"),  _
          Global.System.ComponentModel.DataObjectMethodAttribute(Global.System.ComponentModel.DataObjectMethodType.Update, true)>  _
-        Public Overloads Overridable Function Update(ByVal Username As String, ByVal Password As String, ByVal Original_ID As Integer, ByVal Original_Username As String, ByVal Original_Password As String) As Integer
+        Public Overloads Overridable Function Update(ByVal Username As String, ByVal Password As String, ByVal Type As String, ByVal Original_ID As Integer, ByVal Original_Username As String, ByVal Original_Password As String, ByVal Original_Type As String) As Integer
             If (Username Is Nothing) Then
                 Me.Adapter.UpdateCommand.Parameters(0).Value = Global.System.DBNull.Value
             Else
@@ -3394,20 +3580,32 @@ Namespace DBSistemPakarDataSetTableAdapters
             Else
                 Me.Adapter.UpdateCommand.Parameters(1).Value = CType(Password,String)
             End If
-            Me.Adapter.UpdateCommand.Parameters(2).Value = CType(Original_ID,Integer)
-            If (Original_Username Is Nothing) Then
-                Me.Adapter.UpdateCommand.Parameters(3).Value = CType(1,Object)
-                Me.Adapter.UpdateCommand.Parameters(4).Value = Global.System.DBNull.Value
+            If (Type Is Nothing) Then
+                Me.Adapter.UpdateCommand.Parameters(2).Value = Global.System.DBNull.Value
             Else
-                Me.Adapter.UpdateCommand.Parameters(3).Value = CType(0,Object)
-                Me.Adapter.UpdateCommand.Parameters(4).Value = CType(Original_Username,String)
+                Me.Adapter.UpdateCommand.Parameters(2).Value = CType(Type,String)
+            End If
+            Me.Adapter.UpdateCommand.Parameters(3).Value = CType(Original_ID,Integer)
+            If (Original_Username Is Nothing) Then
+                Me.Adapter.UpdateCommand.Parameters(4).Value = CType(1,Object)
+                Me.Adapter.UpdateCommand.Parameters(5).Value = Global.System.DBNull.Value
+            Else
+                Me.Adapter.UpdateCommand.Parameters(4).Value = CType(0,Object)
+                Me.Adapter.UpdateCommand.Parameters(5).Value = CType(Original_Username,String)
             End If
             If (Original_Password Is Nothing) Then
-                Me.Adapter.UpdateCommand.Parameters(5).Value = CType(1,Object)
-                Me.Adapter.UpdateCommand.Parameters(6).Value = Global.System.DBNull.Value
+                Me.Adapter.UpdateCommand.Parameters(6).Value = CType(1,Object)
+                Me.Adapter.UpdateCommand.Parameters(7).Value = Global.System.DBNull.Value
             Else
-                Me.Adapter.UpdateCommand.Parameters(5).Value = CType(0,Object)
-                Me.Adapter.UpdateCommand.Parameters(6).Value = CType(Original_Password,String)
+                Me.Adapter.UpdateCommand.Parameters(6).Value = CType(0,Object)
+                Me.Adapter.UpdateCommand.Parameters(7).Value = CType(Original_Password,String)
+            End If
+            If (Original_Type Is Nothing) Then
+                Me.Adapter.UpdateCommand.Parameters(8).Value = CType(1,Object)
+                Me.Adapter.UpdateCommand.Parameters(9).Value = Global.System.DBNull.Value
+            Else
+                Me.Adapter.UpdateCommand.Parameters(8).Value = CType(0,Object)
+                Me.Adapter.UpdateCommand.Parameters(9).Value = CType(Original_Type,String)
             End If
             Dim previousConnectionState As Global.System.Data.ConnectionState = Me.Adapter.UpdateCommand.Connection.State
             If ((Me.Adapter.UpdateCommand.Connection.State And Global.System.Data.ConnectionState.Open)  _
@@ -3440,7 +3638,7 @@ Namespace DBSistemPakarDataSetTableAdapters
         
         Private _gejalaTableAdapter As GejalaTableAdapter
         
-        Private _harga_ObatTableAdapter As Harga_ObatTableAdapter
+        Private _obatTableAdapter As ObatTableAdapter
         
         Private _solusiTableAdapter As SolusiTableAdapter
         
@@ -3480,12 +3678,12 @@ Namespace DBSistemPakarDataSetTableAdapters
          Global.System.ComponentModel.EditorAttribute("Microsoft.VSDesigner.DataSource.Design.TableAdapterManagerPropertyEditor, Microso"& _ 
             "ft.VSDesigner, Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3"& _ 
             "a", "System.Drawing.Design.UITypeEditor")>  _
-        Public Property Harga_ObatTableAdapter() As Harga_ObatTableAdapter
+        Public Property ObatTableAdapter() As ObatTableAdapter
             Get
-                Return Me._harga_ObatTableAdapter
+                Return Me._obatTableAdapter
             End Get
             Set
-                Me._harga_ObatTableAdapter = value
+                Me._obatTableAdapter = value
             End Set
         End Property
         
@@ -3540,9 +3738,9 @@ Namespace DBSistemPakarDataSetTableAdapters
                             AndAlso (Not (Me._gejalaTableAdapter.Connection) Is Nothing)) Then
                     Return Me._gejalaTableAdapter.Connection
                 End If
-                If ((Not (Me._harga_ObatTableAdapter) Is Nothing)  _
-                            AndAlso (Not (Me._harga_ObatTableAdapter.Connection) Is Nothing)) Then
-                    Return Me._harga_ObatTableAdapter.Connection
+                If ((Not (Me._obatTableAdapter) Is Nothing)  _
+                            AndAlso (Not (Me._obatTableAdapter.Connection) Is Nothing)) Then
+                    Return Me._obatTableAdapter.Connection
                 End If
                 If ((Not (Me._solusiTableAdapter) Is Nothing)  _
                             AndAlso (Not (Me._solusiTableAdapter.Connection) Is Nothing)) Then
@@ -3568,7 +3766,7 @@ Namespace DBSistemPakarDataSetTableAdapters
                 If (Not (Me._gejalaTableAdapter) Is Nothing) Then
                     count = (count + 1)
                 End If
-                If (Not (Me._harga_ObatTableAdapter) Is Nothing) Then
+                If (Not (Me._obatTableAdapter) Is Nothing) Then
                     count = (count + 1)
                 End If
                 If (Not (Me._solusiTableAdapter) Is Nothing) Then
@@ -3597,12 +3795,12 @@ Namespace DBSistemPakarDataSetTableAdapters
                     allChangedRows.AddRange(updatedRows)
                 End If
             End If
-            If (Not (Me._harga_ObatTableAdapter) Is Nothing) Then
-                Dim updatedRows() As Global.System.Data.DataRow = dataSet.Harga_Obat.Select(Nothing, Nothing, Global.System.Data.DataViewRowState.ModifiedCurrent)
+            If (Not (Me._obatTableAdapter) Is Nothing) Then
+                Dim updatedRows() As Global.System.Data.DataRow = dataSet.Obat.Select(Nothing, Nothing, Global.System.Data.DataViewRowState.ModifiedCurrent)
                 updatedRows = Me.GetRealUpdatedRows(updatedRows, allAddedRows)
                 If ((Not (updatedRows) Is Nothing)  _
                             AndAlso (0 < updatedRows.Length)) Then
-                    result = (result + Me._harga_ObatTableAdapter.Update(updatedRows))
+                    result = (result + Me._obatTableAdapter.Update(updatedRows))
                     allChangedRows.AddRange(updatedRows)
                 End If
             End If
@@ -3642,11 +3840,11 @@ Namespace DBSistemPakarDataSetTableAdapters
                     allAddedRows.AddRange(addedRows)
                 End If
             End If
-            If (Not (Me._harga_ObatTableAdapter) Is Nothing) Then
-                Dim addedRows() As Global.System.Data.DataRow = dataSet.Harga_Obat.Select(Nothing, Nothing, Global.System.Data.DataViewRowState.Added)
+            If (Not (Me._obatTableAdapter) Is Nothing) Then
+                Dim addedRows() As Global.System.Data.DataRow = dataSet.Obat.Select(Nothing, Nothing, Global.System.Data.DataViewRowState.Added)
                 If ((Not (addedRows) Is Nothing)  _
                             AndAlso (0 < addedRows.Length)) Then
-                    result = (result + Me._harga_ObatTableAdapter.Update(addedRows))
+                    result = (result + Me._obatTableAdapter.Update(addedRows))
                     allAddedRows.AddRange(addedRows)
                 End If
             End If
@@ -3692,11 +3890,11 @@ Namespace DBSistemPakarDataSetTableAdapters
                     allChangedRows.AddRange(deletedRows)
                 End If
             End If
-            If (Not (Me._harga_ObatTableAdapter) Is Nothing) Then
-                Dim deletedRows() As Global.System.Data.DataRow = dataSet.Harga_Obat.Select(Nothing, Nothing, Global.System.Data.DataViewRowState.Deleted)
+            If (Not (Me._obatTableAdapter) Is Nothing) Then
+                Dim deletedRows() As Global.System.Data.DataRow = dataSet.Obat.Select(Nothing, Nothing, Global.System.Data.DataViewRowState.Deleted)
                 If ((Not (deletedRows) Is Nothing)  _
                             AndAlso (0 < deletedRows.Length)) Then
-                    result = (result + Me._harga_ObatTableAdapter.Update(deletedRows))
+                    result = (result + Me._obatTableAdapter.Update(deletedRows))
                     allChangedRows.AddRange(deletedRows)
                 End If
             End If
@@ -3754,8 +3952,8 @@ Namespace DBSistemPakarDataSetTableAdapters
                 Throw New Global.System.ArgumentException("All TableAdapters managed by a TableAdapterManager must use the same connection s"& _ 
                         "tring.")
             End If
-            If ((Not (Me._harga_ObatTableAdapter) Is Nothing)  _
-                        AndAlso (Me.MatchTableAdapterConnection(Me._harga_ObatTableAdapter.Connection) = false)) Then
+            If ((Not (Me._obatTableAdapter) Is Nothing)  _
+                        AndAlso (Me.MatchTableAdapterConnection(Me._obatTableAdapter.Connection) = false)) Then
                 Throw New Global.System.ArgumentException("All TableAdapters managed by a TableAdapterManager must use the same connection s"& _ 
                         "tring.")
             End If
@@ -3810,13 +4008,13 @@ Namespace DBSistemPakarDataSetTableAdapters
                         adaptersWithAcceptChangesDuringUpdate.Add(Me._gejalaTableAdapter.Adapter)
                     End If
                 End If
-                If (Not (Me._harga_ObatTableAdapter) Is Nothing) Then
-                    revertConnections.Add(Me._harga_ObatTableAdapter, Me._harga_ObatTableAdapter.Connection)
-                    Me._harga_ObatTableAdapter.Connection = CType(workConnection,Global.System.Data.OleDb.OleDbConnection)
-                    Me._harga_ObatTableAdapter.Transaction = CType(workTransaction,Global.System.Data.OleDb.OleDbTransaction)
-                    If Me._harga_ObatTableAdapter.Adapter.AcceptChangesDuringUpdate Then
-                        Me._harga_ObatTableAdapter.Adapter.AcceptChangesDuringUpdate = false
-                        adaptersWithAcceptChangesDuringUpdate.Add(Me._harga_ObatTableAdapter.Adapter)
+                If (Not (Me._obatTableAdapter) Is Nothing) Then
+                    revertConnections.Add(Me._obatTableAdapter, Me._obatTableAdapter.Connection)
+                    Me._obatTableAdapter.Connection = CType(workConnection,Global.System.Data.OleDb.OleDbConnection)
+                    Me._obatTableAdapter.Transaction = CType(workTransaction,Global.System.Data.OleDb.OleDbTransaction)
+                    If Me._obatTableAdapter.Adapter.AcceptChangesDuringUpdate Then
+                        Me._obatTableAdapter.Adapter.AcceptChangesDuringUpdate = false
+                        adaptersWithAcceptChangesDuringUpdate.Add(Me._obatTableAdapter.Adapter)
                     End If
                 End If
                 If (Not (Me._solusiTableAdapter) Is Nothing) Then
@@ -3901,9 +4099,9 @@ Namespace DBSistemPakarDataSetTableAdapters
                     Me._gejalaTableAdapter.Connection = CType(revertConnections(Me._gejalaTableAdapter),Global.System.Data.OleDb.OleDbConnection)
                     Me._gejalaTableAdapter.Transaction = Nothing
                 End If
-                If (Not (Me._harga_ObatTableAdapter) Is Nothing) Then
-                    Me._harga_ObatTableAdapter.Connection = CType(revertConnections(Me._harga_ObatTableAdapter),Global.System.Data.OleDb.OleDbConnection)
-                    Me._harga_ObatTableAdapter.Transaction = Nothing
+                If (Not (Me._obatTableAdapter) Is Nothing) Then
+                    Me._obatTableAdapter.Connection = CType(revertConnections(Me._obatTableAdapter),Global.System.Data.OleDb.OleDbConnection)
+                    Me._obatTableAdapter.Transaction = Nothing
                 End If
                 If (Not (Me._solusiTableAdapter) Is Nothing) Then
                     Me._solusiTableAdapter.Connection = CType(revertConnections(Me._solusiTableAdapter),Global.System.Data.OleDb.OleDbConnection)
