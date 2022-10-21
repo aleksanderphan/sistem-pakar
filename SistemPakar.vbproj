@@ -76,11 +76,18 @@
     <Compile Include="Class\ClsDiagnosa.vb" />
     <Compile Include="Class\ClsLogin.vb" />
     <Compile Include="Class\ClsObat.vb" />
+    <Compile Include="Class\ClsPengunjung.vb" />
     <Compile Include="Class\ModConnection.vb" />
     <Compile Include="DBSistemPakarDataSet.Designer.vb">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>DBSistemPakarDataSet.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="Form\FrmDaftar.Designer.vb">
+      <DependentUpon>FrmDaftar.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Form\FrmDaftar.vb">
+      <SubType>Form</SubType>
     </Compile>
     <Compile Include="Form\FrmDiagnosa.Designer.vb">
       <DependentUpon>FrmDiagnosa.vb</DependentUpon>
@@ -107,6 +114,12 @@
     <Compile Include="Form\FrmObat.vb">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Include="Form\FrmPengunjung.Designer.vb">
+      <DependentUpon>FrmPengunjung.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Form\FrmPengunjung.vb">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="My Project\AssemblyInfo.vb" />
     <Compile Include="My Project\Application.Designer.vb">
       <AutoGen>True</AutoGen>
@@ -124,6 +137,9 @@
     </Compile>
   </ItemGroup>
   <ItemGroup>
+    <EmbeddedResource Include="Form\FrmDaftar.resx">
+      <DependentUpon>FrmDaftar.vb</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Form\FrmDiagnosa.resx">
       <DependentUpon>FrmDiagnosa.vb</DependentUpon>
     </EmbeddedResource>
@@ -135,6 +151,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Form\FrmObat.resx">
       <DependentUpon>FrmObat.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Form\FrmPengunjung.resx">
+      <DependentUpon>FrmPengunjung.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="My Project\Resources.resx">
       <Generator>VbMyResourcesResXFileCodeGenerator</Generator>

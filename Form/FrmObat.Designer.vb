@@ -35,6 +35,8 @@ Partial Class FrmObat
         Me.btnDelete = New System.Windows.Forms.Button()
         Me.btnSave = New System.Windows.Forms.Button()
         Me.btnEdit = New System.Windows.Forms.Button()
+        Me.lblSatuan = New System.Windows.Forms.Label()
+        Me.cboSatuan = New System.Windows.Forms.ComboBox()
         CType(Me.dgvObat, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.grpObat.SuspendLayout()
         Me.grpDetail.SuspendLayout()
@@ -78,6 +80,8 @@ Partial Class FrmObat
         '
         Me.grpDetail.Anchor = CType(((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Left) _
             Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+        Me.grpDetail.Controls.Add(Me.cboSatuan)
+        Me.grpDetail.Controls.Add(Me.lblSatuan)
         Me.grpDetail.Controls.Add(Me.txtKode)
         Me.grpDetail.Controls.Add(Me.txtHarga)
         Me.grpDetail.Controls.Add(Me.lblHarga)
@@ -108,7 +112,7 @@ Partial Class FrmObat
         Me.txtHarga.Location = New System.Drawing.Point(80, 86)
         Me.txtHarga.Name = "txtHarga"
         Me.txtHarga.ReadOnly = True
-        Me.txtHarga.Size = New System.Drawing.Size(311, 20)
+        Me.txtHarga.Size = New System.Drawing.Size(177, 20)
         Me.txtHarga.TabIndex = 1
         '
         'lblHarga
@@ -194,6 +198,25 @@ Partial Class FrmObat
         Me.btnEdit.Text = "Edit"
         Me.btnEdit.UseVisualStyleBackColor = True
         '
+        'lblSatuan
+        '
+        Me.lblSatuan.AutoSize = True
+        Me.lblSatuan.Location = New System.Drawing.Point(263, 89)
+        Me.lblSatuan.Name = "lblSatuan"
+        Me.lblSatuan.Size = New System.Drawing.Size(47, 13)
+        Me.lblSatuan.TabIndex = 10
+        Me.lblSatuan.Text = "Satuan :"
+        '
+        'cboSatuan
+        '
+        Me.cboSatuan.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
+        Me.cboSatuan.Enabled = False
+        Me.cboSatuan.FormattingEnabled = True
+        Me.cboSatuan.Location = New System.Drawing.Point(316, 86)
+        Me.cboSatuan.Name = "cboSatuan"
+        Me.cboSatuan.Size = New System.Drawing.Size(75, 21)
+        Me.cboSatuan.TabIndex = 11
+        '
         'FrmObat
         '
         Me.AcceptButton = Me.btnSave
@@ -228,4 +251,6 @@ Partial Class FrmObat
     Friend WithEvents btnDelete As Button
     Friend WithEvents btnInsert As Button
     Friend WithEvents txtKode As TextBox
+    Friend WithEvents lblSatuan As Label
+    Friend WithEvents cboSatuan As ComboBox
 End Class

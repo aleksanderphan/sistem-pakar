@@ -26,12 +26,13 @@ Partial Class FrmMain
         Me.DiagnosaToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.DaftarObatToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.LoginToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
+        Me.DaftarPengunjungToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.MenuStrip1.SuspendLayout()
         Me.SuspendLayout()
         '
         'MenuStrip1
         '
-        Me.MenuStrip1.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.DiagnosaToolStripMenuItem, Me.DaftarObatToolStripMenuItem, Me.LoginToolStripMenuItem})
+        Me.MenuStrip1.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.DiagnosaToolStripMenuItem, Me.DaftarObatToolStripMenuItem, Me.DaftarPengunjungToolStripMenuItem, Me.LoginToolStripMenuItem})
         Me.MenuStrip1.Location = New System.Drawing.Point(0, 0)
         Me.MenuStrip1.Name = "MenuStrip1"
         Me.MenuStrip1.RenderMode = System.Windows.Forms.ToolStripRenderMode.System
@@ -59,6 +60,13 @@ Partial Class FrmMain
         Me.LoginToolStripMenuItem.Size = New System.Drawing.Size(49, 20)
         Me.LoginToolStripMenuItem.Text = "Login"
         '
+        'DaftarPengunjungToolStripMenuItem
+        '
+        Me.DaftarPengunjungToolStripMenuItem.Name = "DaftarPengunjungToolStripMenuItem"
+        Me.DaftarPengunjungToolStripMenuItem.Size = New System.Drawing.Size(119, 20)
+        Me.DaftarPengunjungToolStripMenuItem.Text = "Daftar Pengunjung"
+        Me.DaftarPengunjungToolStripMenuItem.Visible = False
+        '
         'FrmMain
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
@@ -82,4 +90,5 @@ Partial Class FrmMain
     Friend WithEvents DiagnosaToolStripMenuItem As ToolStripMenuItem
     Friend WithEvents LoginToolStripMenuItem As ToolStripMenuItem
     Friend WithEvents DaftarObatToolStripMenuItem As ToolStripMenuItem
+    Friend WithEvents DaftarPengunjungToolStripMenuItem As ToolStripMenuItem
 End Class

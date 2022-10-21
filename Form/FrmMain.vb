@@ -25,4 +25,13 @@
             FrmObat.Show()
         End If
     End Sub
+
+    Private Sub DaftarPengunjungToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles DaftarPengunjungToolStripMenuItem.Click
+        If Application.OpenForms().OfType(Of FrmPengunjung).Any Then
+            FrmPengunjung.Select()
+        Else
+            FrmPengunjung.MdiParent = Me
+            FrmPengunjung.Show()
+        End If
+    End Sub
 End Class

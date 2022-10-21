@@ -48,6 +48,7 @@ Public Class ClsLogin
         ElseIf pakar.Checked = True Then
             FrmMain.DiagnosaToolStripMenuItem.Visible = True
             FrmMain.DaftarObatToolStripMenuItem.Visible = True
+            FrmMain.DaftarPengunjungToolStripMenuItem.Visible = True
         End If
     End Sub
 
