@@ -65,6 +65,7 @@ Public Class ClsDiagnosa
 
         Dim result = MsgBox("Mau Menyimpan Hasil Diagnosa Anda?", MsgBoxStyle.YesNo, "Hasil Diagnosa")
         If result = MsgBoxResult.Yes Then
+            'WIP : Proses Untuk Menyimpan Hasil Diagnosa Ke Tabel HasilDiagnosa
             MsgBox("Tersimpan", MsgBoxStyle.Information, "Hasil Diagnosa Tersimpan")
             FrmDiagnosa.Close()
         End If

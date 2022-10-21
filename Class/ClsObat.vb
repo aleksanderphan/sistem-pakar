@@ -36,7 +36,7 @@ Public Class ClsObat
     End Sub
 
     Public Sub Edit(dgv As DataGridView, kode As TextBox, nama As TextBox, harga As TextBox)
-        If CheckDuplicate(nama) = False Then 'Tips : Parameter MS Access Sesuai Berurut Urutan Deklarasi, Bukan Nama
+        If CheckDuplicate(nama) = False Then 'Tips : Parameter MS Access Berurut Sesuai Urutan Deklarasi, Bukan Urutan Nama
             cmd = New OleDbCommand("UPDATE [Obat] SET [Nama] = @Nama, [Harga] = @Harga WHERE [Kode] = @Kode", conn)
             cmd.Parameters.Add(New OleDbParameter("@Nama", nama.Text))
             cmd.Parameters.Add(New OleDbParameter("@Harga", harga.Text))
@@ -50,9 +50,9 @@ Public Class ClsObat
         End If
     End Sub
 
-    Public Sub Delete(dgv As DataGridView)
+    Public Sub Delete(dgv As DataGridView, kode As TextBox)
         cmd = New OleDbCommand("DELETE FROM [Obat] WHERE [Kode] = @Kode", conn)
-        cmd.Parameters.Add(New OleDbParameter("@Kode", dgv.SelectedRows(0).Cells(0).Value))
+        cmd.Parameters.Add(New OleDbParameter("@Kode", kode.Text))
         conn.Open()
         cmd.ExecuteNonQuery()
         cmd.Dispose() : conn.Close()

@@ -1,9 +1,5 @@
 ﻿Public Class FrmMain
 
-    Public Sub New()
-        InitializeComponent()
-    End Sub
-
     Private Sub FrmMain_Load(sender As Object, e As EventArgs) Handles MyBase.Load
         FrmLogin.ShowDialog()
     End Sub

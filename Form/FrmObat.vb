@@ -16,6 +16,7 @@
             txtNamaObat.ReadOnly = True
             txtHarga.ReadOnly = True
             btnSave.Enabled = False
+            btnDelete.Enabled = True
             txtKode.Text = dgvObat.SelectedRows(0).Cells(0).Value
             txtNamaObat.Text = dgvObat.SelectedRows(0).Cells(1).Value
             txtHarga.Text = dgvObat.SelectedRows(0).Cells(2).Value
@@ -38,20 +39,29 @@
 
     Private Sub BtnSave_Click(sender As Object, e As EventArgs) Handles btnSave.Click
         If btnEdit.Enabled = True Then
-            Dim result = MsgBox("Yakin Untuk Menyimpan Perubahan?", MsgBoxStyle.YesNo, "Konfirmasi Perubahan")
-            If result = MsgBoxResult.Yes Then
-                o.Edit(dgvObat, txtKode, txtNamaObat, txtHarga)
-                MsgBox("Perubahan Tersimpan!", MsgBoxStyle.Information, "Perubahan Tersimpan")
+            If txtNamaObat.Text = "" Or txtHarga.Text = "" Or txtHarga.Text <= "0" Then
+                MsgBox("Jangan Ada Field Yang Kosong!", MsgBoxStyle.Critical, "Field Kosong")
             Else
-                MsgBox("Perubahan Dibatalkan!", MsgBoxStyle.Information, "Perubahan Dibatalkan")
+                Dim result = MsgBox("Yakin Untuk Menyimpan Perubahan?", MsgBoxStyle.YesNo, "Konfirmasi Perubahan")
+                If result = MsgBoxResult.Yes Then
+                    o.Edit(dgvObat, txtKode, txtNamaObat, txtHarga)
+                    MsgBox("Perubahan Tersimpan!", MsgBoxStyle.Information, "Perubahan Tersimpan")
+                Else
+                    MsgBox("Perubahan Dibatalkan!", MsgBoxStyle.Information, "Perubahan Dibatalkan")
+                End If
             End If
+
         ElseIf btnInsert.Enabled = True Then
-            Dim result = MsgBox("Yakin Untuk Menambah Obat Baru?", MsgBoxStyle.YesNo, "Konfirmasi Penambahan Obat")
-            If result = MsgBoxResult.Yes Then
-                o.Insert(dgvObat, txtNamaObat, txtHarga)
-                MsgBox("Obat Baru Ditambahkan!", MsgBoxStyle.Information, "Obat Baru Ditambahkan")
+            If txtNamaObat.Text = "" Or txtHarga.Text = "" Or txtHarga.Text <= "0" Then
+                MsgBox("Jangan Ada Field Yang Kosong!", MsgBoxStyle.Critical, "Field Kosong")
             Else
-                MsgBox("Penambahan Obat Dibatalkan!", MsgBoxStyle.Information, "Penambahan Obat Dibatalkan")
+                Dim result = MsgBox("Yakin Untuk Menambah Obat Baru?", MsgBoxStyle.YesNo, "Konfirmasi Penambahan Obat")
+                If result = MsgBoxResult.Yes Then
+                    o.Insert(dgvObat, txtNamaObat, txtHarga)
+                    MsgBox("Obat Baru Ditambahkan!", MsgBoxStyle.Information, "Obat Baru Ditambahkan")
+                Else
+                    MsgBox("Penambahan Obat Dibatalkan!", MsgBoxStyle.Information, "Penambahan Obat Dibatalkan")
+                End If
             End If
         End If
     End Sub
@@ -59,7 +69,7 @@
     Private Sub BtnDelete_Click(sender As Object, e As EventArgs) Handles btnDelete.Click
         Dim result = MsgBox("Yakin Untuk Menghapus Obat Ini?", MsgBoxStyle.YesNo, "Konfirmasi Penghapusan")
         If result = MsgBoxResult.Yes Then
-            o.Delete(dgvObat)
+            o.Delete(dgvObat, txtKode)
             MsgBox("Obat Telah Dihapus!", MsgBoxStyle.Information, "Obat Telah Dihapus")
         Else
             MsgBox("Penghapusan Obat Dibatalkan!", MsgBoxStyle.Information, "Penghapusan Obat Dibatalkan")
@@ -77,6 +87,5 @@
         btnSave.Enabled = True
         btnEdit.Enabled = False
         btnDelete.Enabled = False
-        txtKode.Visible = False
     End Sub
 End Class

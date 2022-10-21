@@ -25,6 +25,7 @@ Partial Class FrmObat
         Me.dgvObat = New System.Windows.Forms.DataGridView()
         Me.grpObat = New System.Windows.Forms.GroupBox()
         Me.grpDetail = New System.Windows.Forms.GroupBox()
+        Me.txtKode = New System.Windows.Forms.TextBox()
         Me.txtHarga = New System.Windows.Forms.TextBox()
         Me.lblHarga = New System.Windows.Forms.Label()
         Me.lblNamaObat = New System.Windows.Forms.Label()
@@ -34,7 +35,6 @@ Partial Class FrmObat
         Me.btnDelete = New System.Windows.Forms.Button()
         Me.btnSave = New System.Windows.Forms.Button()
         Me.btnEdit = New System.Windows.Forms.Button()
-        Me.txtKode = New System.Windows.Forms.TextBox()
         CType(Me.dgvObat, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.grpObat.SuspendLayout()
         Me.grpDetail.SuspendLayout()
@@ -90,11 +90,22 @@ Partial Class FrmObat
         Me.grpDetail.TabStop = False
         Me.grpDetail.Text = "Detail"
         '
+        'txtKode
+        '
+        Me.txtKode.Anchor = CType((System.Windows.Forms.AnchorStyles.Bottom Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+        Me.txtKode.Enabled = False
+        Me.txtKode.Location = New System.Drawing.Point(366, 11)
+        Me.txtKode.Name = "txtKode"
+        Me.txtKode.ReadOnly = True
+        Me.txtKode.Size = New System.Drawing.Size(25, 20)
+        Me.txtKode.TabIndex = 9
+        Me.txtKode.TabStop = False
+        Me.txtKode.TextAlign = System.Windows.Forms.HorizontalAlignment.Center
+        '
         'txtHarga
         '
-        Me.txtHarga.Anchor = CType(((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Left) _
-            Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
-        Me.txtHarga.Location = New System.Drawing.Point(80, 94)
+        Me.txtHarga.Anchor = CType((System.Windows.Forms.AnchorStyles.Left Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+        Me.txtHarga.Location = New System.Drawing.Point(80, 86)
         Me.txtHarga.Name = "txtHarga"
         Me.txtHarga.ReadOnly = True
         Me.txtHarga.Size = New System.Drawing.Size(311, 20)
@@ -103,7 +114,7 @@ Partial Class FrmObat
         'lblHarga
         '
         Me.lblHarga.AutoSize = True
-        Me.lblHarga.Location = New System.Drawing.Point(6, 97)
+        Me.lblHarga.Location = New System.Drawing.Point(6, 89)
         Me.lblHarga.Name = "lblHarga"
         Me.lblHarga.Size = New System.Drawing.Size(68, 13)
         Me.lblHarga.TabIndex = 2
@@ -111,8 +122,9 @@ Partial Class FrmObat
         '
         'lblNamaObat
         '
+        Me.lblNamaObat.Anchor = CType((System.Windows.Forms.AnchorStyles.Bottom Or System.Windows.Forms.AnchorStyles.Left), System.Windows.Forms.AnchorStyles)
         Me.lblNamaObat.AutoSize = True
-        Me.lblNamaObat.Location = New System.Drawing.Point(6, 19)
+        Me.lblNamaObat.Location = New System.Drawing.Point(6, 21)
         Me.lblNamaObat.Name = "lblNamaObat"
         Me.lblNamaObat.Size = New System.Drawing.Size(67, 13)
         Me.lblNamaObat.TabIndex = 1
@@ -120,9 +132,8 @@ Partial Class FrmObat
         '
         'txtNamaObat
         '
-        Me.txtNamaObat.Anchor = CType(((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Left) _
-            Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
-        Me.txtNamaObat.Location = New System.Drawing.Point(6, 35)
+        Me.txtNamaObat.Anchor = CType((System.Windows.Forms.AnchorStyles.Left Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+        Me.txtNamaObat.Location = New System.Drawing.Point(6, 37)
         Me.txtNamaObat.Multiline = True
         Me.txtNamaObat.Name = "txtNamaObat"
         Me.txtNamaObat.ReadOnly = True
@@ -139,7 +150,7 @@ Partial Class FrmObat
         Me.grpFungsi.Controls.Add(Me.btnEdit)
         Me.grpFungsi.Location = New System.Drawing.Point(391, 138)
         Me.grpFungsi.Name = "grpFungsi"
-        Me.grpFungsi.Size = New System.Drawing.Size(397, 48)
+        Me.grpFungsi.Size = New System.Drawing.Size(397, 55)
         Me.grpFungsi.TabIndex = 3
         Me.grpFungsi.TabStop = False
         Me.grpFungsi.Text = "Fungsi"
@@ -155,7 +166,8 @@ Partial Class FrmObat
         '
         'btnDelete
         '
-        Me.btnDelete.Location = New System.Drawing.Point(316, 19)
+        Me.btnDelete.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+        Me.btnDelete.Location = New System.Drawing.Point(235, 19)
         Me.btnDelete.Name = "btnDelete"
         Me.btnDelete.Size = New System.Drawing.Size(75, 23)
         Me.btnDelete.TabIndex = 3
@@ -164,8 +176,9 @@ Partial Class FrmObat
         '
         'btnSave
         '
+        Me.btnSave.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.btnSave.Enabled = False
-        Me.btnSave.Location = New System.Drawing.Point(235, 19)
+        Me.btnSave.Location = New System.Drawing.Point(316, 19)
         Me.btnSave.Name = "btnSave"
         Me.btnSave.Size = New System.Drawing.Size(75, 23)
         Me.btnSave.TabIndex = 2
@@ -180,16 +193,6 @@ Partial Class FrmObat
         Me.btnEdit.TabIndex = 1
         Me.btnEdit.Text = "Edit"
         Me.btnEdit.UseVisualStyleBackColor = True
-        '
-        'txtKode
-        '
-        Me.txtKode.Enabled = False
-        Me.txtKode.Location = New System.Drawing.Point(366, 12)
-        Me.txtKode.Name = "txtKode"
-        Me.txtKode.ReadOnly = True
-        Me.txtKode.Size = New System.Drawing.Size(25, 20)
-        Me.txtKode.TabIndex = 9
-        Me.txtKode.TabStop = False
         '
         'FrmObat
         '

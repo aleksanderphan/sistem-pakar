@@ -10,7 +10,9 @@ Module ModConnection
     Public dr, dry, drt, drg, drs As OleDbDataReader
 
     Public Function LoadTable(query As String) As DataTable
-        conn.Open()
+        If conn.State = ConnectionState.Closed Then
+            conn.Open()
+        End If
         Try
             da = New OleDbDataAdapter(query, conn)
             dt.Clear()
@@ -19,7 +21,6 @@ Module ModConnection
         Catch ex As Exception
             MsgBox(ex.ToString)
         End Try
-
 
         conn.Close()
         Return dt
