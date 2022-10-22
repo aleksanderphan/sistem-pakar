@@ -79,4 +79,5 @@ Public Class ClsDiagnosa
             ShowSolusi(txt.Remove(0, 1))
         End If
     End Sub
+
 End Class

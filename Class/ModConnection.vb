@@ -25,4 +25,5 @@ Module ModConnection
         conn.Close()
         Return dt
     End Function
+
 End Module

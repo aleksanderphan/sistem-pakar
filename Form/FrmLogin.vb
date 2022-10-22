@@ -5,7 +5,8 @@
     Private Sub BtnLogin_Click(sender As Object, e As EventArgs) Handles btnLogin.Click
         If l.Validation(txtUser, txtPass) = True Then
             If rdbPengunjung.Checked = True Then
-                'Show Form Untuk Mendaftarkan Diri Sebagai Pasien Jika Belum Terdaftar
+                'WIP : Class Check Daftar Pengunjung
+                'WIP : Show Form Untuk Mendaftarkan Diri Sebagai Pasien Jika Belum Terdaftar
             End If
 
             l.Login(txtUser, txtPass, rdbPengunjung, rdbPakar)

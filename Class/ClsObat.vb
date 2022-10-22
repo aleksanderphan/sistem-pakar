@@ -26,8 +26,7 @@ Public Class ClsObat
             cmd = New OleDbCommand("INSERT INTO [Obat] ([Nama], [Harga]) VALUES (@Nama, @Harga)", conn)
             cmd.Parameters.Add(New OleDbParameter("@Nama", nama.Text))
             cmd.Parameters.Add(New OleDbParameter("@Harga", harga.Text))
-            conn.Open()
-            cmd.ExecuteNonQuery()
+            conn.Open() : cmd.ExecuteNonQuery()
             cmd.Dispose() : conn.Close()
             LoadDB(dgv)
         Else
@@ -41,8 +40,7 @@ Public Class ClsObat
             cmd.Parameters.Add(New OleDbParameter("@Nama", nama.Text))
             cmd.Parameters.Add(New OleDbParameter("@Harga", harga.Text))
             cmd.Parameters.Add(New OleDbParameter("@Kode", kode.Text))
-            conn.Open()
-            cmd.ExecuteNonQuery()
+            conn.Open() : cmd.ExecuteNonQuery()
             cmd.Dispose() : conn.Close()
             LoadDB(dgv)
         Else
@@ -53,8 +51,7 @@ Public Class ClsObat
     Public Sub Delete(dgv As DataGridView, kode As TextBox)
         cmd = New OleDbCommand("DELETE FROM [Obat] WHERE [Kode] = @Kode", conn)
         cmd.Parameters.Add(New OleDbParameter("@Kode", kode.Text))
-        conn.Open()
-        cmd.ExecuteNonQuery()
+        conn.Open() : cmd.ExecuteNonQuery()
         cmd.Dispose() : conn.Close()
         LoadDB(dgv)
     End Sub

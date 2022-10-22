@@ -88,4 +88,5 @@
         btnEdit.Enabled = False
         btnDelete.Enabled = False
     End Sub
+
 End Class
