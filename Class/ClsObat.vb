@@ -35,7 +35,7 @@ Public Class ClsObat
     End Sub
 
     Public Sub Edit(dgv As DataGridView, kode As TextBox, nama As TextBox, harga As TextBox)
-        If CheckDuplicate(nama) = False Then 'Tips : Parameter MS Access Berurut Sesuai Urutan Deklarasi, Bukan Urutan Nama
+        If CheckDuplicate(nama) = False Then 'Tips : Parameter MS Access Berurut Sesuai Urutan Deklarasi, Bukan Sesuai Nama Parameter
             cmd = New OleDbCommand("UPDATE [Obat] SET [Nama] = @Nama, [Harga] = @Harga WHERE [Kode] = @Kode", conn)
             cmd.Parameters.Add(New OleDbParameter("@Nama", nama.Text))
             cmd.Parameters.Add(New OleDbParameter("@Harga", harga.Text))
