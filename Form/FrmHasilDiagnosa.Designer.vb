@@ -22,16 +22,33 @@ Partial Class FrmHasilDiagnosa
     'Do not modify it using the code editor.
     <System.Diagnostics.DebuggerStepThrough()> _
     Private Sub InitializeComponent()
+        Me.dgvHasilDiagnosa = New System.Windows.Forms.DataGridView()
+        CType(Me.dgvHasilDiagnosa, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
+        '
+        'dgvHasilDiagnosa
+        '
+        Me.dgvHasilDiagnosa.Anchor = CType((((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Bottom) _
+            Or System.Windows.Forms.AnchorStyles.Left) _
+            Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+        Me.dgvHasilDiagnosa.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
+        Me.dgvHasilDiagnosa.Location = New System.Drawing.Point(12, 12)
+        Me.dgvHasilDiagnosa.Name = "dgvHasilDiagnosa"
+        Me.dgvHasilDiagnosa.Size = New System.Drawing.Size(846, 266)
+        Me.dgvHasilDiagnosa.TabIndex = 0
         '
         'FrmHasilDiagnosa
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-        Me.ClientSize = New System.Drawing.Size(800, 450)
+        Me.ClientSize = New System.Drawing.Size(870, 290)
+        Me.Controls.Add(Me.dgvHasilDiagnosa)
         Me.Name = "FrmHasilDiagnosa"
         Me.Text = "Hasil Diagnosa"
+        CType(Me.dgvHasilDiagnosa, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
 
     End Sub
+
+    Friend WithEvents dgvHasilDiagnosa As DataGridView
 End Class

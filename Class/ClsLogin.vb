@@ -48,18 +48,21 @@ Public Class ClsLogin
             End If
         Else
             dr.Close() : cmd.Dispose() : conn.Close()
-            MsgBox("User Tidak Ditemukan!", MsgBoxStyle.Exclamation, "User Tidak Ditemukan")
-            Dim result = MsgBox("Ingin Mendaftar User Baru?", MsgBoxStyle.YesNo, "User Tidak Ditemukan")
-            If result = MsgBoxResult.Yes Then
-                CreateUser(user)
+            ' WIP : Check User Sudah Ada Atau Belum
+            If CheckDuplicate(user) = False Then
+                MsgBox("User Tidak Ditemukan!", MsgBoxStyle.Exclamation, "User Tidak Ditemukan")
+                Dim result = MsgBox("Ingin Mendaftar User Baru?", MsgBoxStyle.YesNo, "User Tidak Ditemukan")
+                If result = MsgBoxResult.Yes Then
+                    CreateUser(user)
+                End If
             End If
         End If
 
-            cmd.Dispose() : conn.Close()
+        cmd.Dispose() : conn.Close()
     End Sub
 
     Public Sub TypeLogin(pengunjung As RadioButton, pakar As RadioButton)
-        FrmLogin.Close()
+        FrmLogin.Hide()
         FrmMain.LoginToolStripMenuItem.Visible = False
 
         If pengunjung.Checked = True Then

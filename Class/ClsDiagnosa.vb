@@ -62,18 +62,19 @@ Public Class ClsDiagnosa
             Do While drs.Read
                 namaGejala = drs.Item(1).ToString
                 namaObat = drs.Item(3).ToString
-                MsgBox("Anda " & namaGejala & vbCrLf & "Disarankan Berobat Dengan : " & SelectObat(namaObat), MsgBoxStyle.Information, "Hasil Diagnosa")
+                MsgBox("Anda " & namaGejala & vbCrLf & "Disarankan Berobat Dengan : " & vbCrLf & SelectObat(namaObat), MsgBoxStyle.Information, "Hasil Diagnosa")
             Loop
         End If
         cmds.Dispose()
 
         Dim result = MsgBox("Mau Menyimpan Hasil Diagnosa Anda?", MsgBoxStyle.YesNo, "Hasil Diagnosa")
         If result = MsgBoxResult.Yes Then
-            'WIP : 
             InsertHasil(namaGejala, SelectObat(namaObat))
             MsgBox("Tersimpan", MsgBoxStyle.Information, "Hasil Diagnosa Tersimpan")
             FrmDiagnosa.Close()
             FrmHasilDiagnosa.Show()
+        Else
+            FrmDiagnosa.Close()
         End If
     End Sub
 
@@ -90,28 +91,39 @@ Public Class ClsDiagnosa
         Dim lObat As New List(Of String)
         Dim substrings = obat.Split(","c)
         For i = 0 To substrings.GetUpperBound(0)
-            substrings(i) = "'" & substrings(i).Trim() & "'"
+            substrings(i) = CInt(substrings(i).Substring(1, 1))
         Next
         Dim strJoin = String.Join(", ", substrings)
-        cmd = New OleDbCommand("SELECT [Nama] FROM [Obat] WHERE [Kode] IN (@Kode)", conn)
-        cmd.Parameters.Add(New OleDbParameter("@Kode", strJoin))
-        dr = cmd.ExecuteReader
-        dr.Read()
-        If dr.HasRows Then
-            lObat.Add(dr.Item(0).ToString)
+        cmdl = New OleDbCommand("SELECT * FROM [Obat] WHERE [Kode] IN (" & strJoin & ")", conn2)
+        If conn2.State = ConnectionState.Closed Then
+            conn2.Open()
+        End If
+        drl = cmdl.ExecuteReader
+        If drl.HasRows Then
+            Do While drl.Read
+                lObat.Add(drl.Item(1).ToString)
+            Loop
         End If
 
-        dr.Close() : cmd.Dispose() : conn.Close()
-        Return String.Join(",", lObat.ToArray)
+        drl.Close() : cmdl.Dispose() : conn2.Close()
+        Return String.Join(", ", lObat.ToArray)
     End Function
 
     Public Sub InsertHasil(hasil As String, obat As String)
-        cmd = New OleDbCommand("INSERT INTO [Hasil Diagnosa] ([Nama], [Hasil], [Obat]) VALUES (@Nama, @Hasil, @Obat)", conn)
+        cmd = New OleDbCommand("INSERT INTO [Hasil Diagnosa] ([Nama], [Hasil], [Obat]) VALUES (@Nama, @Hasil, @Obat)", conn2)
         cmd.Parameters.Add(New OleDbParameter("@Nama", FrmLogin.txtUser.Text))
         cmd.Parameters.Add(New OleDbParameter("@Hasil", hasil))
         cmd.Parameters.Add(New OleDbParameter("@Obat", obat))
-        conn.Open() : cmd.ExecuteNonQuery()
-        cmd.Dispose() : conn.Close()
+        If conn2.State = ConnectionState.Closed Then
+            conn2.Open()
+        End If
+        cmd.ExecuteNonQuery()
+        cmd.Dispose() : conn2.Close()
+    End Sub
+
+    Public Sub LoadHasilDiagnosa(dgv As DataGridView)
+        dt = LoadTable("SELECT * FROM [Hasil Diagnosa]")
+        dgv.DataSource = dt
     End Sub
 
 End Class

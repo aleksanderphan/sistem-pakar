@@ -2,12 +2,12 @@
 
 Module ModConnection
 
-    Public conn As New OleDbConnection(My.Settings.DBSistemPakarConnectionString)
-    Public cmd, cmdy, cmdt, cmdg, cmds As New OleDbCommand
+    Public conn, conn2 As New OleDbConnection(My.Settings.DBSistemPakarConnectionString)
+    Public cmd, cmdy, cmdt, cmdg, cmds, cmdl As New OleDbCommand
     Public dt As New DataTable
     Public ds As New DataSet
     Public da As New OleDbDataAdapter
-    Public dr, dry, drt, drg, drs As OleDbDataReader
+    Public dr, dry, drt, drg, drs, drl As OleDbDataReader
 
     Public Function LoadTable(query As String) As DataTable
         If conn.State = ConnectionState.Closed Then
