@@ -83,22 +83,22 @@ Partial Class FrmLogin
         'rdbPengunjung
         '
         Me.rdbPengunjung.AutoSize = True
+        Me.rdbPengunjung.Checked = True
         Me.rdbPengunjung.Location = New System.Drawing.Point(12, 129)
         Me.rdbPengunjung.Name = "rdbPengunjung"
         Me.rdbPengunjung.Size = New System.Drawing.Size(82, 17)
         Me.rdbPengunjung.TabIndex = 4
+        Me.rdbPengunjung.TabStop = True
         Me.rdbPengunjung.Text = "Pengunjung"
         Me.rdbPengunjung.UseVisualStyleBackColor = True
         '
         'rdbPakar
         '
         Me.rdbPakar.AutoSize = True
-        Me.rdbPakar.Checked = True
         Me.rdbPakar.Location = New System.Drawing.Point(100, 129)
         Me.rdbPakar.Name = "rdbPakar"
         Me.rdbPakar.Size = New System.Drawing.Size(53, 17)
         Me.rdbPakar.TabIndex = 5
-        Me.rdbPakar.TabStop = True
         Me.rdbPakar.Text = "Pakar"
         Me.rdbPakar.UseVisualStyleBackColor = True
         '

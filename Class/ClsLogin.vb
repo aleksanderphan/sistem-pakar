@@ -17,16 +17,18 @@ Public Class ClsLogin
     End Function
 
     Public Function CheckDuplicate(user As TextBox) As Boolean
-        cmd = New OleDbCommand("SELECT [Nama] FROM [User] WHERE [Nama] = @Nama", conn)
-        cmd.Parameters.Add(New OleDbParameter("@Nama", user.Text))
-        conn.Open()
-        dr = cmd.ExecuteReader
-        dr.Read()
-        If dr.HasRows Then
+        cmdc = New OleDbCommand("SELECT [Username] FROM [User] WHERE [Username] = @Nama", connc)
+        cmdc.Parameters.Add(New OleDbParameter("@Nama", user.Text))
+        If connc.State = ConnectionState.Closed Then
+            connc.Open()
+        End If
+        drc = cmdc.ExecuteReader
+        drc.Read()
+        If drc.HasRows Then
             Return True
         End If
 
-        dr.Close() : cmd.Dispose() : conn.Close()
+        drc.Close() : cmdc.Dispose() : connc.Close()
         Return False
     End Function
 
@@ -47,14 +49,14 @@ Public Class ClsLogin
                 TypeLogin(pengunjung, pakar)
             End If
         Else
-            dr.Close() : cmd.Dispose() : conn.Close()
-            ' WIP : Check User Sudah Ada Atau Belum
             If CheckDuplicate(user) = False Then
                 MsgBox("User Tidak Ditemukan!", MsgBoxStyle.Exclamation, "User Tidak Ditemukan")
                 Dim result = MsgBox("Ingin Mendaftar User Baru?", MsgBoxStyle.YesNo, "User Tidak Ditemukan")
                 If result = MsgBoxResult.Yes Then
                     CreateUser(user)
                 End If
+            Else
+                MsgBox("Password Anda Salah!", MsgBoxStyle.Critical, "Password Salah")
             End If
         End If
 
