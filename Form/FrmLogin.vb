@@ -11,9 +11,11 @@
 
     Private Sub RdbPengunjung_CheckedChanged(sender As Object, e As EventArgs) Handles rdbPengunjung.CheckedChanged
         grpLogin.Text = "Login Sebagai Pengunjung"
+        txtUser.Select()
     End Sub
 
     Private Sub RdbPakar_CheckedChanged(sender As Object, e As EventArgs) Handles rdbPakar.CheckedChanged
         grpLogin.Text = "Login Sebagai Pakar"
+        txtUser.Select()
     End Sub
 End Class

@@ -3,6 +3,7 @@
 Public Class ClsDiagnosa
 
     Dim no As Integer = 1
+    Dim vUser As String = FrmLogin.txtUser.Text
 
     Public Sub ShowGejala(txt As RichTextBox)
         cmdg = New OleDbCommand("SELECT * FROM [Gejala] WHERE [Kode] = " & no & "", conn)
@@ -20,9 +21,9 @@ Public Class ClsDiagnosa
     End Sub
 
     Public Sub GejalaYa(rtxt As RichTextBox)
-        cmdy = New OleDbCommand("SELECT * FROM [Gejala] WHERE [Kode] = " & no & "", conn)
-        If conn.State = ConnectionState.Closed Then
-            conn.Open()
+        cmdy = New OleDbCommand("SELECT * FROM [Gejala] WHERE [Kode] = " & no & "", conny)
+        If conny.State = ConnectionState.Closed Then
+            conny.Open()
         End If
 
         dry = cmdy.ExecuteReader
@@ -31,13 +32,13 @@ Public Class ClsDiagnosa
                 GejalaDB(dry.Item(2).ToString, rtxt)
             Loop
         End If
-        cmdy.Dispose() : conn.Close()
+        cmdy.Dispose() : conny.Close()
     End Sub
 
     Public Sub GejalaTidak(rtxt As RichTextBox)
-        cmdt = New OleDbCommand("SELECT * FROM [Gejala] WHERE [Kode] = " & no & "", conn)
-        If conn.State = ConnectionState.Closed Then
-            conn.Open()
+        cmdt = New OleDbCommand("SELECT * FROM [Gejala] WHERE [Kode] = " & no & "", connt)
+        If connt.State = ConnectionState.Closed Then
+            connt.Open()
         End If
 
         drt = cmdt.ExecuteReader
@@ -46,7 +47,7 @@ Public Class ClsDiagnosa
                 GejalaDB(drt.Item(3).ToString, rtxt)
             Loop
         End If
-        cmdt.Dispose() : conn.Close()
+        cmdt.Dispose() : connt.Close()
     End Sub
 
     Public Sub ShowSolusi(txt As String)
@@ -110,6 +111,7 @@ Public Class ClsDiagnosa
     End Function
 
     Public Sub InsertHasil(hasil As String, obat As String)
+        vUser = FrmLogin.txtUser.Text
         cmd = New OleDbCommand("INSERT INTO [Hasil Diagnosa] ([Nama], [Hasil], [Obat]) VALUES (@Nama, @Hasil, @Obat)", conn2)
         cmd.Parameters.Add(New OleDbParameter("@Nama", FrmLogin.txtUser.Text))
         cmd.Parameters.Add(New OleDbParameter("@Hasil", hasil))
@@ -122,7 +124,7 @@ Public Class ClsDiagnosa
     End Sub
 
     Public Sub LoadHasilDiagnosa(dgv As DataGridView)
-        dt = LoadTable("SELECT * FROM [Hasil Diagnosa]")
+        dt = LoadTable("SELECT * FROM [Hasil Diagnosa] WHERE [Nama] = '" & vUser & "'")
         dgv.DataSource = dt
     End Sub
 

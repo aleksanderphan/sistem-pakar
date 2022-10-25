@@ -2,7 +2,7 @@
 
 Module ModConnection
 
-    Public conn, conn2, connc As New OleDbConnection(My.Settings.DBSistemPakarConnectionString)
+    Public conn, conny, connt, conn2, connc As New OleDbConnection(My.Settings.DBSistemPakarConnectionString)
     Public cmd, cmdy, cmdt, cmdg, cmds, cmdl, cmdc As New OleDbCommand
     Public dt As New DataTable
     Public ds As New DataSet

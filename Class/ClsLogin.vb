@@ -77,9 +77,9 @@ Public Class ClsLogin
     End Sub
 
     Public Sub CreateNewUser(user As TextBox, pass As TextBox)
-        cmd = New OleDbCommand("INSERT INTO [User] (Username, Password, Type) VALUES (@Nama, @Pass, 'Pengunjung')", conn)
+        cmd = New OleDbCommand("INSERT INTO [User] ([Username], [Password], [Type]) VALUES (@Nama, @Pass, 'Pengunjung')", conn)
         cmd.Parameters.Add(New OleDbParameter("@Nama", user.Text))
-        cmd.Parameters.Add(New OleDbParameter("Pass", pass.Text))
+        cmd.Parameters.Add(New OleDbParameter("@Pass", pass.Text))
         conn.Open() : cmd.ExecuteNonQuery()
         cmd.Dispose() : conn.Close()
         MsgBox("User Baru Telah Dibuat, Anda Sudah Bisa Login Sekarang.", MsgBoxStyle.Information, "User Berhasil Dibuat")
@@ -92,7 +92,7 @@ Public Class ClsLogin
     Public Sub CreateUser(user As TextBox)
         FrmDaftar.txtNama.Text = user.Text
         FrmDaftar.txtNama.ReadOnly = True
-        FrmLogin.Close()
+        FrmLogin.Hide()
         FrmDaftar.MdiParent = FrmMain
         FrmDaftar.Show()
     End Sub

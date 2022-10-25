@@ -28,20 +28,24 @@ Partial Class FrmHasilDiagnosa
         '
         'dgvHasilDiagnosa
         '
+        Me.dgvHasilDiagnosa.AllowUserToAddRows = False
+        Me.dgvHasilDiagnosa.AllowUserToDeleteRows = False
         Me.dgvHasilDiagnosa.Anchor = CType((((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Bottom) _
             Or System.Windows.Forms.AnchorStyles.Left) _
             Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.dgvHasilDiagnosa.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
         Me.dgvHasilDiagnosa.Location = New System.Drawing.Point(12, 12)
         Me.dgvHasilDiagnosa.Name = "dgvHasilDiagnosa"
-        Me.dgvHasilDiagnosa.Size = New System.Drawing.Size(846, 266)
+        Me.dgvHasilDiagnosa.ReadOnly = True
+        Me.dgvHasilDiagnosa.RowHeadersVisible = False
+        Me.dgvHasilDiagnosa.Size = New System.Drawing.Size(553, 275)
         Me.dgvHasilDiagnosa.TabIndex = 0
         '
         'FrmHasilDiagnosa
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-        Me.ClientSize = New System.Drawing.Size(870, 290)
+        Me.ClientSize = New System.Drawing.Size(577, 299)
         Me.Controls.Add(Me.dgvHasilDiagnosa)
         Me.Name = "FrmHasilDiagnosa"
         Me.Text = "Hasil Diagnosa"
