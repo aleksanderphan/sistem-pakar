@@ -23,59 +23,70 @@ Partial Class FrmDaftar
     <System.Diagnostics.DebuggerStepThrough()> _
     Private Sub InitializeComponent()
         Me.grpForm = New System.Windows.Forms.GroupBox()
-        Me.TextBox5 = New System.Windows.Forms.TextBox()
+        Me.txtAlamat = New System.Windows.Forms.TextBox()
         Me.txtUsia = New System.Windows.Forms.TextBox()
-        Me.TextBox3 = New System.Windows.Forms.TextBox()
+        Me.txtNIK = New System.Windows.Forms.TextBox()
         Me.lblUsia = New System.Windows.Forms.Label()
         Me.lblNIK = New System.Windows.Forms.Label()
         Me.lblAlamat = New System.Windows.Forms.Label()
-        Me.TextBox1 = New System.Windows.Forms.TextBox()
+        Me.txtNama = New System.Windows.Forms.TextBox()
         Me.lblNama = New System.Windows.Forms.Label()
+        Me.btnCreate = New System.Windows.Forms.Button()
+        Me.btnClear = New System.Windows.Forms.Button()
+        Me.txtPass = New System.Windows.Forms.TextBox()
+        Me.lblPass = New System.Windows.Forms.Label()
         Me.grpForm.SuspendLayout()
         Me.SuspendLayout()
         '
         'grpForm
         '
-        Me.grpForm.Anchor = CType((((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Bottom) _
-            Or System.Windows.Forms.AnchorStyles.Left) _
+        Me.grpForm.Anchor = CType(((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Left) _
             Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
-        Me.grpForm.Controls.Add(Me.TextBox5)
+        Me.grpForm.Controls.Add(Me.txtPass)
+        Me.grpForm.Controls.Add(Me.lblPass)
+        Me.grpForm.Controls.Add(Me.txtAlamat)
         Me.grpForm.Controls.Add(Me.txtUsia)
-        Me.grpForm.Controls.Add(Me.TextBox3)
+        Me.grpForm.Controls.Add(Me.txtNIK)
         Me.grpForm.Controls.Add(Me.lblUsia)
         Me.grpForm.Controls.Add(Me.lblNIK)
         Me.grpForm.Controls.Add(Me.lblAlamat)
-        Me.grpForm.Controls.Add(Me.TextBox1)
+        Me.grpForm.Controls.Add(Me.txtNama)
         Me.grpForm.Controls.Add(Me.lblNama)
         Me.grpForm.Location = New System.Drawing.Point(12, 12)
         Me.grpForm.Name = "grpForm"
-        Me.grpForm.Size = New System.Drawing.Size(313, 142)
+        Me.grpForm.Size = New System.Drawing.Size(313, 163)
         Me.grpForm.TabIndex = 0
         Me.grpForm.TabStop = False
-        Me.grpForm.Text = "Form Pengunjung"
+        Me.grpForm.Text = "Form Pendaftaran"
         '
-        'TextBox5
+        'txtAlamat
         '
-        Me.TextBox5.Location = New System.Drawing.Point(98, 104)
-        Me.TextBox5.Name = "TextBox5"
-        Me.TextBox5.Size = New System.Drawing.Size(200, 20)
-        Me.TextBox5.TabIndex = 9
+        Me.txtAlamat.Anchor = CType(((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Left) _
+            Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+        Me.txtAlamat.Location = New System.Drawing.Point(98, 104)
+        Me.txtAlamat.Name = "txtAlamat"
+        Me.txtAlamat.Size = New System.Drawing.Size(200, 20)
+        Me.txtAlamat.TabIndex = 9
         '
         'txtUsia
         '
+        Me.txtUsia.Anchor = CType(((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Left) _
+            Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.txtUsia.Location = New System.Drawing.Point(98, 78)
         Me.txtUsia.MaxLength = 2
         Me.txtUsia.Name = "txtUsia"
         Me.txtUsia.Size = New System.Drawing.Size(200, 20)
         Me.txtUsia.TabIndex = 8
         '
-        'TextBox3
+        'txtNIK
         '
-        Me.TextBox3.Location = New System.Drawing.Point(98, 52)
-        Me.TextBox3.MaxLength = 16
-        Me.TextBox3.Name = "TextBox3"
-        Me.TextBox3.Size = New System.Drawing.Size(200, 20)
-        Me.TextBox3.TabIndex = 7
+        Me.txtNIK.Anchor = CType(((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Left) _
+            Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+        Me.txtNIK.Location = New System.Drawing.Point(98, 52)
+        Me.txtNIK.MaxLength = 16
+        Me.txtNIK.Name = "txtNIK"
+        Me.txtNIK.Size = New System.Drawing.Size(200, 20)
+        Me.txtNIK.TabIndex = 7
         '
         'lblUsia
         '
@@ -104,12 +115,14 @@ Partial Class FrmDaftar
         Me.lblAlamat.TabIndex = 2
         Me.lblAlamat.Text = "Alamat :"
         '
-        'TextBox1
+        'txtNama
         '
-        Me.TextBox1.Location = New System.Drawing.Point(98, 26)
-        Me.TextBox1.Name = "TextBox1"
-        Me.TextBox1.Size = New System.Drawing.Size(200, 20)
-        Me.TextBox1.TabIndex = 1
+        Me.txtNama.Anchor = CType(((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Left) _
+            Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+        Me.txtNama.Location = New System.Drawing.Point(98, 26)
+        Me.txtNama.Name = "txtNama"
+        Me.txtNama.Size = New System.Drawing.Size(200, 20)
+        Me.txtNama.TabIndex = 1
         '
         'lblNama
         '
@@ -120,11 +133,53 @@ Partial Class FrmDaftar
         Me.lblNama.TabIndex = 0
         Me.lblNama.Text = "Nama Lengkap :"
         '
+        'btnCreate
+        '
+        Me.btnCreate.Anchor = CType((System.Windows.Forms.AnchorStyles.Bottom Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+        Me.btnCreate.Location = New System.Drawing.Point(250, 181)
+        Me.btnCreate.Name = "btnCreate"
+        Me.btnCreate.Size = New System.Drawing.Size(75, 23)
+        Me.btnCreate.TabIndex = 1
+        Me.btnCreate.Text = "Daftar"
+        Me.btnCreate.UseVisualStyleBackColor = True
+        '
+        'btnClear
+        '
+        Me.btnClear.Anchor = CType((System.Windows.Forms.AnchorStyles.Bottom Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+        Me.btnClear.Location = New System.Drawing.Point(169, 181)
+        Me.btnClear.Name = "btnClear"
+        Me.btnClear.Size = New System.Drawing.Size(75, 23)
+        Me.btnClear.TabIndex = 2
+        Me.btnClear.Text = "Clear"
+        Me.btnClear.UseVisualStyleBackColor = True
+        '
+        'txtPass
+        '
+        Me.txtPass.Anchor = CType(((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Left) _
+            Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+        Me.txtPass.Location = New System.Drawing.Point(98, 130)
+        Me.txtPass.Name = "txtPass"
+        Me.txtPass.PasswordChar = Global.Microsoft.VisualBasic.ChrW(9679)
+        Me.txtPass.Size = New System.Drawing.Size(200, 20)
+        Me.txtPass.TabIndex = 11
+        '
+        'lblPass
+        '
+        Me.lblPass.AutoSize = True
+        Me.lblPass.Location = New System.Drawing.Point(33, 133)
+        Me.lblPass.Name = "lblPass"
+        Me.lblPass.Size = New System.Drawing.Size(59, 13)
+        Me.lblPass.TabIndex = 10
+        Me.lblPass.Text = "Password :"
+        '
         'FrmDaftar
         '
+        Me.AcceptButton = Me.btnCreate
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-        Me.ClientSize = New System.Drawing.Size(337, 166)
+        Me.ClientSize = New System.Drawing.Size(337, 216)
+        Me.Controls.Add(Me.btnClear)
+        Me.Controls.Add(Me.btnCreate)
         Me.Controls.Add(Me.grpForm)
         Me.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle
         Me.Name = "FrmDaftar"
@@ -136,12 +191,16 @@ Partial Class FrmDaftar
     End Sub
 
     Friend WithEvents grpForm As GroupBox
-    Friend WithEvents TextBox1 As TextBox
+    Friend WithEvents txtNama As TextBox
     Friend WithEvents lblNama As Label
     Friend WithEvents lblAlamat As Label
-    Friend WithEvents TextBox5 As TextBox
+    Friend WithEvents txtAlamat As TextBox
     Friend WithEvents txtUsia As TextBox
-    Friend WithEvents TextBox3 As TextBox
+    Friend WithEvents txtNIK As TextBox
     Friend WithEvents lblUsia As Label
     Friend WithEvents lblNIK As Label
+    Friend WithEvents btnCreate As Button
+    Friend WithEvents btnClear As Button
+    Friend WithEvents txtPass As TextBox
+    Friend WithEvents lblPass As Label
 End Class

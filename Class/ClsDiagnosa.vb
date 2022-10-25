@@ -62,7 +62,7 @@ Public Class ClsDiagnosa
             Do While drs.Read
                 namaGejala = drs.Item(1).ToString
                 namaObat = drs.Item(3).ToString
-                MsgBox("Anda " & namaGejala & vbCrLf & "Disarankan Berobat Dengan : " & namaObat, MsgBoxStyle.Information, "Hasil Diagnosa")
+                MsgBox("Anda " & namaGejala & vbCrLf & "Disarankan Berobat Dengan : " & SelectObat(namaObat), MsgBoxStyle.Information, "Hasil Diagnosa")
             Loop
         End If
         cmds.Dispose()
