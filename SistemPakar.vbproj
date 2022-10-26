@@ -101,6 +101,12 @@
     <Compile Include="Form\FrmDiagnosa.vb">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Include="Form\FrmGejala.Designer.vb">
+      <DependentUpon>FrmGejala.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Form\FrmGejala.vb">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="Form\FrmHasilDiagnosa.Designer.vb">
       <DependentUpon>FrmHasilDiagnosa.vb</DependentUpon>
     </Compile>
@@ -154,6 +160,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Form\FrmDiagnosa.resx">
       <DependentUpon>FrmDiagnosa.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Form\FrmGejala.resx">
+      <DependentUpon>FrmGejala.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Form\FrmHasilDiagnosa.resx">
       <DependentUpon>FrmHasilDiagnosa.vb</DependentUpon>

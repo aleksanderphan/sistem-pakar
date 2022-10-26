@@ -23,6 +23,8 @@ Partial Class FrmDaftar
     <System.Diagnostics.DebuggerStepThrough()> _
     Private Sub InitializeComponent()
         Me.grpForm = New System.Windows.Forms.GroupBox()
+        Me.txtPass = New System.Windows.Forms.TextBox()
+        Me.lblPass = New System.Windows.Forms.Label()
         Me.txtAlamat = New System.Windows.Forms.TextBox()
         Me.txtUsia = New System.Windows.Forms.TextBox()
         Me.txtNIK = New System.Windows.Forms.TextBox()
@@ -33,8 +35,8 @@ Partial Class FrmDaftar
         Me.lblNama = New System.Windows.Forms.Label()
         Me.btnCreate = New System.Windows.Forms.Button()
         Me.btnClear = New System.Windows.Forms.Button()
-        Me.txtPass = New System.Windows.Forms.TextBox()
-        Me.lblPass = New System.Windows.Forms.Label()
+        Me.lblJK = New System.Windows.Forms.Label()
+        Me.cboJK = New System.Windows.Forms.ComboBox()
         Me.grpForm.SuspendLayout()
         Me.SuspendLayout()
         '
@@ -42,6 +44,8 @@ Partial Class FrmDaftar
         '
         Me.grpForm.Anchor = CType(((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Left) _
             Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+        Me.grpForm.Controls.Add(Me.cboJK)
+        Me.grpForm.Controls.Add(Me.lblJK)
         Me.grpForm.Controls.Add(Me.txtPass)
         Me.grpForm.Controls.Add(Me.lblPass)
         Me.grpForm.Controls.Add(Me.txtAlamat)
@@ -59,6 +63,25 @@ Partial Class FrmDaftar
         Me.grpForm.TabStop = False
         Me.grpForm.Text = "Form Pendaftaran"
         '
+        'txtPass
+        '
+        Me.txtPass.Anchor = CType(((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Left) _
+            Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+        Me.txtPass.Location = New System.Drawing.Point(98, 130)
+        Me.txtPass.Name = "txtPass"
+        Me.txtPass.PasswordChar = Global.Microsoft.VisualBasic.ChrW(9679)
+        Me.txtPass.Size = New System.Drawing.Size(200, 20)
+        Me.txtPass.TabIndex = 11
+        '
+        'lblPass
+        '
+        Me.lblPass.AutoSize = True
+        Me.lblPass.Location = New System.Drawing.Point(33, 133)
+        Me.lblPass.Name = "lblPass"
+        Me.lblPass.Size = New System.Drawing.Size(59, 13)
+        Me.lblPass.TabIndex = 10
+        Me.lblPass.Text = "Password :"
+        '
         'txtAlamat
         '
         Me.txtAlamat.Anchor = CType(((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Left) _
@@ -75,7 +98,7 @@ Partial Class FrmDaftar
         Me.txtUsia.Location = New System.Drawing.Point(98, 78)
         Me.txtUsia.MaxLength = 2
         Me.txtUsia.Name = "txtUsia"
-        Me.txtUsia.Size = New System.Drawing.Size(200, 20)
+        Me.txtUsia.Size = New System.Drawing.Size(66, 20)
         Me.txtUsia.TabIndex = 8
         '
         'txtNIK
@@ -153,24 +176,24 @@ Partial Class FrmDaftar
         Me.btnClear.Text = "Clear"
         Me.btnClear.UseVisualStyleBackColor = True
         '
-        'txtPass
+        'lblJK
         '
-        Me.txtPass.Anchor = CType(((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Left) _
-            Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
-        Me.txtPass.Location = New System.Drawing.Point(98, 130)
-        Me.txtPass.Name = "txtPass"
-        Me.txtPass.PasswordChar = Global.Microsoft.VisualBasic.ChrW(9679)
-        Me.txtPass.Size = New System.Drawing.Size(200, 20)
-        Me.txtPass.TabIndex = 11
+        Me.lblJK.AutoSize = True
+        Me.lblJK.Location = New System.Drawing.Point(170, 81)
+        Me.lblJK.Name = "lblJK"
+        Me.lblJK.Size = New System.Drawing.Size(77, 13)
+        Me.lblJK.TabIndex = 12
+        Me.lblJK.Text = "Jenis Kelamin :"
         '
-        'lblPass
+        'cboJK
         '
-        Me.lblPass.AutoSize = True
-        Me.lblPass.Location = New System.Drawing.Point(33, 133)
-        Me.lblPass.Name = "lblPass"
-        Me.lblPass.Size = New System.Drawing.Size(59, 13)
-        Me.lblPass.TabIndex = 10
-        Me.lblPass.Text = "Password :"
+        Me.cboJK.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
+        Me.cboJK.FormattingEnabled = True
+        Me.cboJK.Items.AddRange(New Object() {"Pria", "Wanita"})
+        Me.cboJK.Location = New System.Drawing.Point(253, 77)
+        Me.cboJK.Name = "cboJK"
+        Me.cboJK.Size = New System.Drawing.Size(45, 21)
+        Me.cboJK.TabIndex = 13
         '
         'FrmDaftar
         '
@@ -203,4 +226,6 @@ Partial Class FrmDaftar
     Friend WithEvents btnClear As Button
     Friend WithEvents txtPass As TextBox
     Friend WithEvents lblPass As Label
+    Friend WithEvents cboJK As ComboBox
+    Friend WithEvents lblJK As Label
 End Class

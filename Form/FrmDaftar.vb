@@ -1,6 +1,7 @@
 ﻿Public Class FrmDaftar
 
     Dim l As New ClsLogin
+    Dim pe As New ClsPengunjung
 
     Private Sub BtnClear_Click(sender As Object, e As EventArgs) Handles btnClear.Click
         If txtNama.ReadOnly = True Then
@@ -18,6 +19,7 @@
     Private Sub BtnCreate_Click(sender As Object, e As EventArgs) Handles btnCreate.Click
         If Validation() = True Then
             l.CreateNewUser(txtNama, txtPass)
+            pe.InsertPengunjung(txtNama, txtNIK, txtUsia, cboJK, txtAlamat)
         End If
     End Sub
 
@@ -37,6 +39,12 @@
         If txtUsia.Text = "" Or txtUsia.Text < 1 Then
             MsgBox("Harap Isi Usia Yang Valid!", MsgBoxStyle.Critical, "Usia Tidak Valid")
             txtUsia.Select()
+            Return False
+        End If
+
+        If cboJK.Text = "" Then
+            MsgBox("Harap Pilih Jenis Kelamin!", MsgBoxStyle.Critical, "Jenis Kelamin Tidak Valid")
+            cboJK.Select()
             Return False
         End If
 

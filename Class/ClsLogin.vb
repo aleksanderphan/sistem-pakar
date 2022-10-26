@@ -70,6 +70,7 @@ Public Class ClsLogin
         If pengunjung.Checked = True Then
             FrmMain.DiagnosaToolStripMenuItem.Visible = True
         ElseIf pakar.Checked = True Then
+            FrmMain.GejalaToolStripMenuItem.Visible = True
             FrmMain.DiagnosaToolStripMenuItem.Visible = True
             FrmMain.DaftarObatToolStripMenuItem.Visible = True
             FrmMain.DaftarPengunjungToolStripMenuItem.Visible = True

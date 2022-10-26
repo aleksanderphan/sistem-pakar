@@ -25,6 +25,8 @@ Partial Class FrmObat
         Me.dgvObat = New System.Windows.Forms.DataGridView()
         Me.grpObat = New System.Windows.Forms.GroupBox()
         Me.grpDetail = New System.Windows.Forms.GroupBox()
+        Me.cboSatuan = New System.Windows.Forms.ComboBox()
+        Me.lblSatuan = New System.Windows.Forms.Label()
         Me.txtKode = New System.Windows.Forms.TextBox()
         Me.txtHarga = New System.Windows.Forms.TextBox()
         Me.lblHarga = New System.Windows.Forms.Label()
@@ -35,8 +37,6 @@ Partial Class FrmObat
         Me.btnDelete = New System.Windows.Forms.Button()
         Me.btnSave = New System.Windows.Forms.Button()
         Me.btnEdit = New System.Windows.Forms.Button()
-        Me.lblSatuan = New System.Windows.Forms.Label()
-        Me.cboSatuan = New System.Windows.Forms.ComboBox()
         CType(Me.dgvObat, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.grpObat.SuspendLayout()
         Me.grpDetail.SuspendLayout()
@@ -93,6 +93,25 @@ Partial Class FrmObat
         Me.grpDetail.TabIndex = 2
         Me.grpDetail.TabStop = False
         Me.grpDetail.Text = "Detail"
+        '
+        'cboSatuan
+        '
+        Me.cboSatuan.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
+        Me.cboSatuan.Enabled = False
+        Me.cboSatuan.FormattingEnabled = True
+        Me.cboSatuan.Location = New System.Drawing.Point(316, 86)
+        Me.cboSatuan.Name = "cboSatuan"
+        Me.cboSatuan.Size = New System.Drawing.Size(75, 21)
+        Me.cboSatuan.TabIndex = 11
+        '
+        'lblSatuan
+        '
+        Me.lblSatuan.AutoSize = True
+        Me.lblSatuan.Location = New System.Drawing.Point(263, 89)
+        Me.lblSatuan.Name = "lblSatuan"
+        Me.lblSatuan.Size = New System.Drawing.Size(47, 13)
+        Me.lblSatuan.TabIndex = 10
+        Me.lblSatuan.Text = "Satuan :"
         '
         'txtKode
         '
@@ -197,25 +216,6 @@ Partial Class FrmObat
         Me.btnEdit.TabIndex = 1
         Me.btnEdit.Text = "Edit"
         Me.btnEdit.UseVisualStyleBackColor = True
-        '
-        'lblSatuan
-        '
-        Me.lblSatuan.AutoSize = True
-        Me.lblSatuan.Location = New System.Drawing.Point(263, 89)
-        Me.lblSatuan.Name = "lblSatuan"
-        Me.lblSatuan.Size = New System.Drawing.Size(47, 13)
-        Me.lblSatuan.TabIndex = 10
-        Me.lblSatuan.Text = "Satuan :"
-        '
-        'cboSatuan
-        '
-        Me.cboSatuan.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
-        Me.cboSatuan.Enabled = False
-        Me.cboSatuan.FormattingEnabled = True
-        Me.cboSatuan.Location = New System.Drawing.Point(316, 86)
-        Me.cboSatuan.Name = "cboSatuan"
-        Me.cboSatuan.Size = New System.Drawing.Size(75, 21)
-        Me.cboSatuan.TabIndex = 11
         '
         'FrmObat
         '

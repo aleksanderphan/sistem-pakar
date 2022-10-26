@@ -34,4 +34,13 @@
             FrmPengunjung.Show()
         End If
     End Sub
+
+    Private Sub GejalaToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles GejalaToolStripMenuItem.Click
+        If Application.OpenForms().OfType(Of FrmGejala).Any Then
+            FrmGejala.Select()
+        Else
+            FrmGejala.MdiParent = Me
+            FrmGejala.Show()
+        End If
+    End Sub
 End Class

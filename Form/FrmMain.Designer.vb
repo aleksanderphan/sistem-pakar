@@ -1,9 +1,9 @@
-﻿<Global.Microsoft.VisualBasic.CompilerServices.DesignerGenerated()> _
+﻿<Global.Microsoft.VisualBasic.CompilerServices.DesignerGenerated()>
 Partial Class FrmMain
     Inherits System.Windows.Forms.Form
 
     'Form overrides dispose to clean up the component list.
-    <System.Diagnostics.DebuggerNonUserCode()> _
+    <System.Diagnostics.DebuggerNonUserCode()>
     Protected Overrides Sub Dispose(ByVal disposing As Boolean)
         Try
             If disposing AndAlso components IsNot Nothing Then
@@ -20,19 +20,20 @@ Partial Class FrmMain
     'NOTE: The following procedure is required by the Windows Form Designer
     'It can be modified using the Windows Form Designer.  
     'Do not modify it using the code editor.
-    <System.Diagnostics.DebuggerStepThrough()> _
+    <System.Diagnostics.DebuggerStepThrough()>
     Private Sub InitializeComponent()
         Me.MenuStrip1 = New System.Windows.Forms.MenuStrip()
         Me.DiagnosaToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.DaftarObatToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
-        Me.LoginToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.DaftarPengunjungToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
+        Me.GejalaToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
+        Me.LoginToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.MenuStrip1.SuspendLayout()
         Me.SuspendLayout()
         '
         'MenuStrip1
         '
-        Me.MenuStrip1.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.DiagnosaToolStripMenuItem, Me.DaftarObatToolStripMenuItem, Me.DaftarPengunjungToolStripMenuItem, Me.LoginToolStripMenuItem})
+        Me.MenuStrip1.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.DiagnosaToolStripMenuItem, Me.GejalaToolStripMenuItem, Me.DaftarObatToolStripMenuItem, Me.DaftarPengunjungToolStripMenuItem, Me.LoginToolStripMenuItem})
         Me.MenuStrip1.Location = New System.Drawing.Point(0, 0)
         Me.MenuStrip1.Name = "MenuStrip1"
         Me.MenuStrip1.RenderMode = System.Windows.Forms.ToolStripRenderMode.System
@@ -54,18 +55,25 @@ Partial Class FrmMain
         Me.DaftarObatToolStripMenuItem.Text = "Database Obat"
         Me.DaftarObatToolStripMenuItem.Visible = False
         '
-        'LoginToolStripMenuItem
-        '
-        Me.LoginToolStripMenuItem.Name = "LoginToolStripMenuItem"
-        Me.LoginToolStripMenuItem.Size = New System.Drawing.Size(49, 20)
-        Me.LoginToolStripMenuItem.Text = "Login"
-        '
         'DaftarPengunjungToolStripMenuItem
         '
         Me.DaftarPengunjungToolStripMenuItem.Name = "DaftarPengunjungToolStripMenuItem"
         Me.DaftarPengunjungToolStripMenuItem.Size = New System.Drawing.Size(119, 20)
         Me.DaftarPengunjungToolStripMenuItem.Text = "Daftar Pengunjung"
         Me.DaftarPengunjungToolStripMenuItem.Visible = False
+        '
+        'GejalaToolStripMenuItem
+        '
+        Me.GejalaToolStripMenuItem.Name = "GejalaToolStripMenuItem"
+        Me.GejalaToolStripMenuItem.Size = New System.Drawing.Size(51, 20)
+        Me.GejalaToolStripMenuItem.Text = "Gejala"
+        Me.GejalaToolStripMenuItem.Visible = False
+        '
+        'LoginToolStripMenuItem
+        '
+        Me.LoginToolStripMenuItem.Name = "LoginToolStripMenuItem"
+        Me.LoginToolStripMenuItem.Size = New System.Drawing.Size(49, 20)
+        Me.LoginToolStripMenuItem.Text = "Login"
         '
         'FrmMain
         '
@@ -91,4 +99,5 @@ Partial Class FrmMain
     Friend WithEvents LoginToolStripMenuItem As ToolStripMenuItem
     Friend WithEvents DaftarObatToolStripMenuItem As ToolStripMenuItem
     Friend WithEvents DaftarPengunjungToolStripMenuItem As ToolStripMenuItem
+    Friend WithEvents GejalaToolStripMenuItem As ToolStripMenuItem
 End Class
