@@ -52,6 +52,7 @@ Public Class ClsDiagnosa
 
     Public Sub ShowSolusi(txt As String)
         Dim namaGejala As String = ""
+        Dim solusi As String = ""
         Dim namaObat As String = ""
         cmds = New OleDbCommand("SELECT * FROM [Solusi] WHERE [Kode] = " & txt & "", conn)
         If conn.State = ConnectionState.Closed Then
@@ -62,6 +63,7 @@ Public Class ClsDiagnosa
         If drs.HasRows Then
             Do While drs.Read
                 namaGejala = drs.Item(1).ToString
+                solusi = drs.Item(2).ToString
                 namaObat = drs.Item(3).ToString
                 MsgBox("Anda " & namaGejala & vbCrLf & "Disarankan Berobat Dengan : " & vbCrLf & SelectObat(namaObat), MsgBoxStyle.Information, "Hasil Diagnosa")
             Loop
@@ -70,7 +72,7 @@ Public Class ClsDiagnosa
 
         Dim result = MsgBox("Mau Menyimpan Hasil Diagnosa Anda?", MsgBoxStyle.YesNo, "Hasil Diagnosa")
         If result = MsgBoxResult.Yes Then
-            InsertHasil(namaGejala, SelectObat(namaObat))
+            InsertHasil(namaGejala, SelectObat(namaObat), solusi)
             MsgBox("Tersimpan", MsgBoxStyle.Information, "Hasil Diagnosa Tersimpan")
             FrmDiagnosa.Close()
             FrmHasilDiagnosa.Show()
@@ -110,11 +112,12 @@ Public Class ClsDiagnosa
         Return String.Join(", ", lObat.ToArray)
     End Function
 
-    Public Sub InsertHasil(hasil As String, obat As String)
+    Public Sub InsertHasil(hasil As String, obat As String, solusi As String)
         vUser = FrmLogin.txtUser.Text
-        cmd = New OleDbCommand("INSERT INTO [Hasil Diagnosa] ([Nama], [Hasil], [Obat]) VALUES (@Nama, @Hasil, @Obat)", conn2)
+        cmd = New OleDbCommand("INSERT INTO [Hasil Diagnosa] ([Nama], [Hasil], [Solusi], [Obat]) VALUES (@Nama, @Hasil, @Solusi, @Obat)", conn2)
         cmd.Parameters.Add(New OleDbParameter("@Nama", FrmLogin.txtUser.Text))
         cmd.Parameters.Add(New OleDbParameter("@Hasil", hasil))
+        cmd.Parameters.Add(New OleDbParameter("@Solusi", solusi))
         cmd.Parameters.Add(New OleDbParameter("@Obat", obat))
         If conn2.State = ConnectionState.Closed Then
             conn2.Open()
