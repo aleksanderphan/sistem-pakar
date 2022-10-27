@@ -92,7 +92,7 @@ Public Class ClsDiagnosa
         Dim lObat As New List(Of String)
         Dim substrings = obat.Split(","c)
         For i = 0 To substrings.GetUpperBound(0)
-            substrings(i) = CInt(substrings(i).Substring(1, 1))
+            substrings(i) = substrings(i).Remove(0, 1)
         Next
         Dim strJoin = String.Join(", ", substrings)
         cmdl = New OleDbCommand("SELECT * FROM [Obat] WHERE [Kode] IN (" & strJoin & ")", conn2)
