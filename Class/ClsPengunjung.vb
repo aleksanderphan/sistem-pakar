@@ -3,8 +3,8 @@
 Public Class ClsPengunjung
 
     Public Sub LoadDB(dgv As DataGridView)
-        dt = LoadTable("SELECT * FROM [Pengunjung]")
-        dgv.DataSource = dt
+        dt2 = LoadTable2("SELECT * FROM [Pengunjung]")
+        dgv.DataSource = dt2
     End Sub
 
     Public Function CheckPengunjung(nik As TextBox) As Boolean
@@ -20,16 +20,4 @@ Public Class ClsPengunjung
         dr.Close() : cmd.Dispose() : conn.Close()
         Return False
     End Function
-
-    Public Sub InsertPengunjung(nama As TextBox, nik As TextBox, usia As TextBox, jk As ComboBox, alamat As TextBox) 'Insert Data Pengunjung Baru
-        cmd = New OleDbCommand("INSERT INTO [Pengunjung] ([Nama Lengkap], [NIK], [Usia], [Jenis Kelamin], [Alamat]) VALUES (@Nama, @NIK, @Usia, @JK, @Alamat)", conn)
-        cmd.Parameters.Add(New OleDbParameter("@Nama", nama.Text))
-        cmd.Parameters.Add(New OleDbParameter("@NIK", nik.Text))
-        cmd.Parameters.Add(New OleDbParameter("@Usia", usia.Text))
-        cmd.Parameters.Add(New OleDbParameter("@JK", jk.Text))
-        cmd.Parameters.Add(New OleDbParameter("@Alamat", alamat.Text))
-        conn.Open() : cmd.ExecuteNonQuery()
-        cmd.Dispose() : conn.Close()
-    End Sub
-
 End Class

@@ -19,7 +19,7 @@
     Private Sub BtnCreate_Click(sender As Object, e As EventArgs) Handles btnCreate.Click
         If Validation() = True Then
             l.CreateNewUser(txtNama, txtPass)
-            pe.InsertPengunjung(txtNama, txtNIK, txtUsia, cboJK, txtAlamat)
+            l.CreatePengunjung(txtNama, txtNIK, txtUsia, cboJK, txtAlamat)
         End If
     End Sub
 

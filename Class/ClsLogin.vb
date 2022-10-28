@@ -84,10 +84,19 @@ Public Class ClsLogin
         conn.Open() : cmd.ExecuteNonQuery()
         cmd.Dispose() : conn.Close()
         MsgBox("User Baru Telah Dibuat, Anda Sudah Bisa Login Sekarang.", MsgBoxStyle.Information, "User Berhasil Dibuat")
+    End Sub
+
+    Public Sub CreatePengunjung(nama As TextBox, nik As TextBox, usia As TextBox, jk As ComboBox, alamat As TextBox)
+        cmd = New OleDbCommand("INSERT INTO [Pengunjung] ([Nama Lengkap], [NIK], [Usia], [Jenis Kelamin], [Alamat]) VALUES (@Nama, @NIK, @Usia, @JK, @Alamat)", conn)
+        cmd.Parameters.Add(New OleDbParameter("@Nama", nama.Text))
+        cmd.Parameters.Add(New OleDbParameter("@NIK", nik.Text))
+        cmd.Parameters.Add(New OleDbParameter("@Usia", usia.Text))
+        cmd.Parameters.Add(New OleDbParameter("@JK", jk.Text))
+        cmd.Parameters.Add(New OleDbParameter("@Alamat", alamat.Text))
+        conn.Open() : cmd.ExecuteNonQuery()
+        cmd.Dispose() : conn.Close()
         FrmDaftar.Close()
-        FrmLogin.txtUser.Text = user.Text
-        FrmLogin.txtPass.Text = pass.Text
-        FrmLogin.Show()
+        FrmLogin.ShowDialog()
     End Sub
 
     Public Sub CreateUser(user As TextBox)
